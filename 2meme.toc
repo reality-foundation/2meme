@@ -1,0 +1,7 @@
+\contentsline {section}{Introduction}{1}{section*.2}%
+\contentsline {section}{System Architecture}{2}{section*.3}%
+\contentsline {section}{Minimizing the Entropy Rate}{3}{section*.4}%
+\contentsline {section}{permissionless vs permissioned approaches}{4}{section*.5}%
+\contentsline {section}{Monte carlo simulation: estimation via self avoiding random walk}{4}{section*.6}%
+\contentsline {section}{Experimental results}{6}{section*.7}%
+\contentsline {section}{Further investigation}{6}{section*.8}%
