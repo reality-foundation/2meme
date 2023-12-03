@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.5)  27 NOV 2023 11:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.5)  3 DEC 2023 10:50
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -850,231 +850,103 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 [1
 
 {/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-./2meme.tex:114: Missing $ inserted.
-<inserted text> 
-                $
-l.114 ...perform a distributed consensus, O(peers^
-                                                  2) data sent across the se...
+[2] [3]
 
-? 
-
-LaTeX Warning: Command \textquoteright invalid in math mode on input line 114.
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 135.
 
 
-LaTeX Warning: Command \textquoteright invalid in math mode on input line 114.
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 135.
 
+[4] [5]
+Overfull \hbox (2.05286pt too wide) in paragraph at lines 174--174
+[][]\OT1/cmr/bx/n/14.4 Monte Carlo sim-u-la-tion: es-ti-ma-tion via self avoid-
 
-LaTeX Warning: Command \textquoteright invalid in math mode on input line 114.
-
-
-LaTeX Warning: Command \textquoteleft invalid in math mode on input line 114.
-
-
-LaTeX Warning: Command \textquoteright invalid in math mode on input line 114.
-
-
-LaTeX Warning: Command \textquoteleft invalid in math mode on input line 115.
-
-
-LaTeX Warning: Command \textquoteright invalid in math mode on input line 115.
-
-
-LaTeX Warning: Command \textquoteleft invalid in math mode on input line 115.
-
-
-LaTeX Warning: Command \textquoteright invalid in math mode on input line 115.
-
-
-LaTeX Warning: Command \textquoteright invalid in math mode on input line 115.
-
-./2meme.tex:116: Missing $ inserted.
-<inserted text> 
-                $
-l.116 
-      
-? 
-
-Overfull \hbox (3579.39253pt too wide) in paragraph at lines 112--116
-\OT1/cmr/m/n/10 O(peers$[])\OML/cmm/m/it/10 datasentacrossthesetofL\OT1/cmr/m/n
-/10 0\OML/cmm/m/it/10 peers; convergingonthestateofeachpeer[]sstatecache:Thecon
-tentsofeachL\OT1/cmr/m/n/10 0\OML/cmm/m/it/10 peer[]sstatecachehowevercontainsb
-locksfromL\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 :Periodically; astheDataDependencyG
-raphreachesnewheightsoronatimedtriggerincaseoflownetworktraffic; eachL\OT1/cmr/
-m/n/10 0\OML/cmm/m/it/10 peerproposesaSnapshottoitsL\OT1/cmr/m/n/10 0\OML/cmm/m
-/it/10 peersusingrumorbasedgossip:ThecontentsoftheseSnapshotsareL\OT1/cmr/m/n/1
-0 1\OML/cmm/m/it/10 blocks; andaparentreference; formedoutofrecursivecryptograp
-hicsignatures; tothepeer[]spreviousSnapshotproposal:Thisformsasequentialtopolog
-yforL\OT1/cmr/m/n/10 0\OML/cmm/m/it/10 peerproposalslikeforAddresses:Ateach\OT1
-/cmr/m/n/10 `\OML/cmm/m/it/10 Height[]step; oneproposalisselectedfromthesetofal
-lproposals; deemedtheMajoritySnapshot:TheMajoritySnapshotischosenasthecountofoc
-currenceswithinthesetofproposals; multipliedbythenodeinfluenceorsumoftrustscore
-sofeachpeerthatproposedit:Periodically; atanintervalmultipleofsnapshotheightcal
-ledheight \OMS/cmsy/m/n/10 ^^@
  []
 
-
-Overfull \hbox (1685.17857pt too wide) in paragraph at lines 112--116
-\OML/cmm/m/it/10 diffinterval; theL\OT1/cmr/m/n/10 0\OML/cmm/m/it/10 nodescycle
-between\OT1/cmr/m/n/10 `\OML/cmm/m/it/10 active[]and\OT1/cmr/m/n/10 `\OML/cmm/m
-/it/10 passive[]states:ThetotalnumberofactiveL\OT1/cmr/m/n/10 0\OML/cmm/m/it/10
- nodesfluctuatesbasedonthenumberofblocksfromthepreviousintervalandpeersarecycle
-deachintervalaccordingtodeterministiclocalitysensitivehashcollisionsbetweenthel
-astsnapshothashandalltheL\OT1/cmr/m/n/10 0\OML/cmm/m/it/10 peeraddresses:Reward
-sforeachroundareproportionaltothecumulativesumofthetrustreportedbyL\OT1/cmr/m/n
-/10 0[]\OML/cmm/m/it/10 speersandlowtrustoutliersareblacklistedtemporarily\OT1/
-cmr/m/n/10 (\OML/cmm/m/it/10 fundsfrozen\OT1/cmr/m/n/10 ?)\OML/cmm/m/it/10 :$ 
+[6] [7] [8]
+Overfull \hbox (11.08406pt too wide) in paragraph at lines 221--223
+[]\OT1/cmr/m/n/10 organicDistroDir', 'sym-met-ric-Sy-bilOne', 'sym-met-ric-Ne-g
+One', 'sym-met-ricZero'] 
  []
 
-[2]
-./2meme.tex:120: Missing $ inserted.
-<inserted text> 
-                $
-l.120 	Consider a set of peers N = (n_
-                                      0 …n_i), acting as random variables ...
-
-? 
-
-LaTeX Warning: Command \textellipsis invalid in math mode on input line 120.
-
-
-LaTeX Warning: Command \textellipsis invalid in math mode on input line 120.
-
-
-LaTeX Warning: Command \textquoteright invalid in math mode on input line 121.
-
-./2meme.tex:122: Missing $ inserted.
-<inserted text> 
-                $
-l.122 
-      
-? 
-
-Overfull \hbox (1632.13078pt too wide) in paragraph at lines 118--122
-\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 o[]:::o[]\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ; 
-suchthath < wandw > d; thesystemhasastrictordergivenbyposettopology:Theseindice
-scanbereducedtodiscreteindexes; suchthateachindex; thereisabinaryvaluerepresent
-ingeachnodeproposingaspecificblockornot:Thisiscalculatedusingfollowingformulafo
-rjoinentropy\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 seeref\OT1/cmr/m/n/10 3)\OML/cmm/
-m/it/10 thelimitofwhichash; w; dapproachesinfinitygivestheentropyrate:Ifablocki
-ndexcontainseachnode; thenthespecificblockhasentropyof\OT1/cmr/m/n/10 0\OML/cmm
-/m/it/10 :Ifitcontains\OMS/cmsy/m/n/10 j\OML/cmm/m/it/10 n\OMS/cmsy/m/n/10 j \O
-ML/cmm/m/it/10 <
- []
-
-
-Overfull \hbox (4670.70154pt too wide) in paragraph at lines 118--122
-\OML/cmm/m/it/10 N; theentropy > \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :Conversely;
- ifnodesproposeblockssuchthattheirindicesconflictwithotherproposals; theycontri
-butetotheoveralldisorderinthesystem:Proposedblockswithvalidyetduplicateddata; c
-ontributetooveralldisorderaswell:Thusthestatewiththeminimalentropycanbeconsider
-edthegreatestcommonsubsetofallproposedblocks; andentropycalculatedasdeviationfr
-omthegreatestcommonsubset:Notethatinthecaseofgraphpartitionsthatarenotwithinthi
-ssubset; yetstillcontainvaliddata; thedatashouldstillbecontainedwithintheoveral
-lstatetransition; howeverthenodethatonlyprocessedit[]slonesubsetcanbeconsidered
-faultyintermsofconsistencyandpartitiontolerance\OT1/cmr/m/n/10 (\OML/cmm/m/it/1
-0 CAP:\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 Inordertopromoteconsistency; arumorbase
-dgossipalgorithmpropagatesblocks; calculatingsignaturesuponthemandforuseasTips;
- tooptimizeforamaximalsubgraphofpeerstoaccepttheblockandproposeitwithinitsSnaps
-hot:Thispreventsseveralsybilattackssuchaslieandwaitandddos; byattemptingtocreat
-ethelongestsignaturechainaspossible; i:e:thelargestcommonsubset\OT1/cmr/m/n/10 
-; \OML/cmm/m/it/10 nodesattemptingthesetypesofattacksareidentifiedviaindependen
-tsubsetsand=orinvalidblocks:$ 
- []
-
-[3]
-./2meme.tex:153: Missing $ inserted.
-<inserted text> 
-                $
-l.153 Output is P_
-                  i^h below
-? 
-./2meme.tex:154: Missing $ inserted.
-<inserted text> 
-                $
-l.154 
-      
-? 
-[4] [5] [6
-pdfTeX warning (ext4): destination with the same identifier (name{cite.latexcom
-panion}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.204 
-      
-pdfTeX warning (ext4): destination with the same identifier (name{cite.latexcom
-panion}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.204 
-      
-pdfTeX warning (ext4): destination with the same identifier (name{cite.latexcom
-panion}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.204 
-      
-pdfTeX warning (ext4): destination with the same identifier (name{cite.latexcom
-panion}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.204 
-      
-pdfTeX warning (ext4): destination with the same identifier (name{cite.latexcom
-panion}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.204 
-      ]
+[9]
 
 Package natbib Warning: There were multiply defined citations.
 
-[7
+[10
 pdfTeX warning (ext4): destination with the same identifier (name{cite.latexcom
 panion}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.206 \end{document}
+l.272 \end{document}
+                    
+pdfTeX warning (ext4): destination with the same identifier (name{cite.latexcom
+panion}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.272 \end{document}
+                    
+pdfTeX warning (ext4): destination with the same identifier (name{cite.latexcom
+panion}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.272 \end{document}
+                    
+pdfTeX warning (ext4): destination with the same identifier (name{cite.latexcom
+panion}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.272 \end{document}
+                    
+pdfTeX warning (ext4): destination with the same identifier (name{cite.latexcom
+panion}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.272 \end{document}
+                    
+pdfTeX warning (ext4): destination with the same identifier (name{cite.latexcom
+panion}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.272 \end{document}
                     ] (./2meme.aux
 
 Package natbib Warning: Citation(s) may have changed.
 (natbib)                Rerun to get citations correct.
 
 )
-
-Package rerunfilecheck Warning: File `2meme.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `2meme.out':
-(rerunfilecheck)             Before: CA141FDD2BC1CEAA1E1CB2E56DDA748E;94
-(rerunfilecheck)             After:  EDBC192CB088A8274F8B0FA69798660F;1379.
+Package rerunfilecheck Info: File `2meme.out' has not changed.
+(rerunfilecheck)             Checksum: C60CC54500971C883B9BE64F35F20C0D;1526.
  ) 
 Here is how much of TeX's memory you used:
- 25306 strings out of 476025
- 477663 string characters out of 5790017
- 1864388 words of memory out of 5000000
- 45296 multiletter control sequences out of 15000+600000
+ 25322 strings out of 476025
+ 477837 string characters out of 5790017
+ 1861388 words of memory out of 5000000
+ 45303 multiletter control sequences out of 15000+600000
  521860 words of font info for 69 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 98i,6n,103p,2244b,569s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 98i,6n,103p,1385b,437s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></
-usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></u
-sr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr
-/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/l
-ocal/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/loc
-al/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local
-/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/te
-xlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texli
-ve/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texliv
-e/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/
-2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2
-023/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on 2meme.pdf (7 pages, 198444 bytes).
+usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></u
+sr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></us
+r/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/
+local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/lo
+cal/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/loca
+l/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/
+texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/te
+xlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texli
+ve/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/
+2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/202
+3/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2023/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2023/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on 2meme.pdf (10 pages, 241630 bytes).
 PDF statistics:
- 130 PDF objects out of 1000 (max. 8388607)
- 92 compressed objects within 1 object stream
- 18 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 194 PDF objects out of 1000 (max. 8388607)
+ 146 compressed objects within 2 object streams
+ 27 named destinations out of 1000 (max. 500000)
+ 77 words of extra memory for PDF output out of 10000 (max. 10000000)
 
