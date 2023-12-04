@@ -13,6 +13,8 @@
 \usepackage{hyperref}
 \usepackage{ amssymb }
 \usepackage{musicography}
+%\usepackage[linesnumbered,ruled]{algorithm2e}
+\usepackage{algpseudocode}
 \usepackage{physics}
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{quiver}[2020/11/27 quiver]
@@ -153,23 +155,45 @@ where $\lambda$ is a normalization function that maps the sum to between -1 and 
 Two algorithms for gathering entropy data are presented below. The key difference is the rate and method of gathering entropy rate. The first enforces a service level agreement requiring each peer to train its model at the same rate, achieving greater determinism and enabling a token reward model for an open network. In the batch model, at every snapshot height-diff interval, each peer proposes a new predicted trust vector within their proposals. They are then used to weight peer proposals for majority snapshot calculation until snapshot height-diff interval +1.
 The second, online algorithm, is a greedy approach that reduces the in-memory cost of running each peer’s model on a deterministic schedule albeit at the loss of determinism that would allow a fair token reward model. It is more suited perhaps to applications that can relax determinism for  open network rewards to focus on elasticity. The online algorithm periodically gossips predicted trust vectors to peers over the Peer api endpoint (“~/trust”), which are then cached and fed into the TrustManager on a time based periodic interval.
 
+\caption{Batch Algorithm (permissionless): Entropy Rate (Optimal for node rewards/cycling between active and passive nodes)}\label{alg:cap}
+\begin{algorithmic}
+\Require $h, i \in \mathbb{N}$
+\Require $H \ggg  i$
+\State $h \gets H$
+\State $n \gets N$ \Comment{these are nodes}
+\For{$h \gets H$}
+\If{$h \bmod i-1 == 0$}
+    \State $state space = entropy(N)$ \Comment{Entropy rate relative to GCS}
+    \State $probability space = walk (state space)$  \Comment{Montecarlo method}
+    \State send encrypted scores to peers
 
-TODO: type set below using pseudocode format
+\Else{$h \bmod i-1 == 0$}
+    \State send unencrypted scores to peers
+    \If {$valid(n) \forall n \in N$}
+    \For{$n \gets N$}
+   	 \State update scores for peers
+	 \State update active and passive peerlist
 
-Batch Algorithm (permissionless): Entropy Rate (Optimal for node rewards/cycling between active and passive nodes)
-Fix a discrete even number representing an index range called ‘cycle’
-As each proposal of blocks is received, each node calculates the greatest common subset of blocks for each node, update cache of [blockhash: nodeId]
-At index number cycle, run monte carlo simulator 
-At index number cycle*2, propose monte carlo simulation outcome, clear cache
-Repeat 2-4
+\end{algorithmic}
+\end{algorithm}
 
-Online Algorithm (permisioned): Approximate Entropy Rate (current implementation, optimal for minimal resource usage, training model over shorter periods should help output, spamming results/sybil collusion should be detected by model, good test)
+\caption{Online Algorithm (permisioned): Approximate Entropy Rate (current implementation, optimal for minimal resource usage, training model over shorter periods should help output, spamming results/sybil collusion should be detected by model, good test)}\label{alg:cap}
+\begin{algorithmic}
+\Require $h, i \in \mathbb{N}$
+\Require $H \ggg i$
+\State $h \gets H$
+\State $n \gets N$ \Comment{these are nodes}
+\For{$h \gets H$}
+\If{$h \bmod i == 0$}
+    \State $state space = entropy(N)$ \Comment{Entropy rate relative to GCS}
+    \State $probability space = walk (state space)$  \Comment{Montecarlo method}
+    \State send encrypted scores to peers
+    \State update scores for peers
+    \State update active and passive peerlist
 
-Fix time interval on nodes 
-As each proposal of blocks is received, each node calculates the greatest common subset of blocks for each node, update cache of [blockhash: nodeId]
-Once time interval ends, pass cache of GCS to monte carlo simulator 
-At next time interval end, propose monte carlo simulation outcome, clear cache
-Repeat 2-4
+\end{algorithmic}
+\end{algorithm}
+
 
 \section{Monte Carlo simulation: estimation via self avoiding random walk}
 Next a self-avoiding walk is employed to perform community detection, the output of which can be used to calculate availability and node influence. Note, to avoid confusion between a consensus network and graph, nodes are called servers below.
@@ -211,6 +235,7 @@ Now, there are five scenarios to determine non-sybil nodes: first if the max pla
 
 Finally, if the total non-sybil nodes to be returned are less than $10\%$ of the population ($90\%$ identified as sybil), return the entire set of nodes.
 
+
 \section{Experimental results}
 The following results were generated from a simulation involving 100 node instances. Several sumulations were run for various types of attacks, which will be outlined below, and with varying percentages of nodes all acting in unison from 0 to 100 in 20 percent intervals. Each type of attack can be reduced down to sybil nodes reporting scores of themselves or non-sybil nodes according to a distribution i,e low scores for non-sybil or high scores for sybil nodes. In the following visualizations, each attack type occurs on the y axis, the sybil percentage is given by the x axis and the z axis is the f-score of the model.
 
@@ -218,14 +243,27 @@ Note that many different scenarios are tested within unit tests and the symulati
 
 The attacks tested are as follows:
 
-organicDistroDir',
-                 'symmetricSybilOne', 'symmetricNegOne', 'symmetricZero']
+organicDistroDir: no attack, organic behavior from each node
 
-As we can see, the most effective attach is for sybils to self report scores of 0.0, yielding an f-score of ~0.7. This is still a solid score for any model and compared to existing consensus models which have an fscore of 0 for sybil percentages above 50 percent, is remarkably successful and provides a huge comparative advantage.
+symmetricSybilOne/Sybil nodes forging their scores as 1.0: all sybil nodes git each other the max value in their proposal
+
+symmetricNegOne/Sybil nodes forging their scores as -1.0: all sybil nodes choose min value for each other in their proposal
+
+symmetricZeroSybil nodes forging their scores as 0.0: all sybil nodes choose 0
+
+
+\includegraphics[width=\textwidth, height=\textwidth]{f-score-surface-plot}
+Here we have a surface plot of fscore according to attack and sybil threshold. As we can see, the most effective attach is for sybils to self report scores of 0.0, yielding an f-score of ~0.7. This is still a solid score for any model and compared to existing consensus models which have an fscore of 0 for sybil percentages above 50 percent, is remarkably successful and provides a huge comparative advantage.
+
+
+\includegraphics[width=\textwidth, height=\textwidth]{attack-success-suface-plot}
+Here we have a plot of the difference between nodes cheating and not cheating. The vertical axis is an the percentage of nodes selected for consensuls, vs actually submitting scores based upon the true entropy rate. The ledge on the top left ("sybil" set doesn't cheat) as well as the $100\%$ sybil case on the right, shows $100\%$ of sybils selected for next round. 
 
 \section{Further investigation}
-	Modifications to the self-avoiding walk implementation could yield positive effects. As in many monte carlo integrations, the direction chosen at each step could be chosen according to a distance metric as opposed to randomly. Albeit, at the computational cost of increasing the dimensionality the trust graph’s edges as well as in-memory expense of the metric calculation. Notably, this approach was employed by (N. Koroviako) who used jaccard similarity to define trust out of relationships between review texts; as MEME approach focuses on information gain, it would follow to select the next path at each step based on minimizing entropy rate of second order proposals (each edge would contain raw proposals, and choose the next node that has the minimal entropy rate compared to the current’s proposals.)
-	Use Hausdorff clustering to identify/visualize hierarchies. Could have applications in further anomaly detection extending to higher dimensions of entropy in tandem with graph embedding or deep learning approach.
+	Modifications to the self-avoiding walk implementation could yield positive effects. As in many monte carlo integrations, the direction chosen at each step could be chosen according to a distance metric as opposed to randomly. Albeit, at the computational cost of increasing the dimensionality the trust graph’s edges as well as in-memory expense of the metric calculation. Notably, this approach was employed by (N. Koroviako) who used jaccard similarity to define trust out of relationships between review texts; as 2MEME approach focuses on information gain, it would follow to select the next path at each step based on minimizing entropy rate of second order proposals (each edge would contain raw proposals, and choose the next node that has the minimal entropy rate compared to the current’s proposals.)
+	Use Hausdorff clustering to identify/embed hierarchies, could lead to a shared security model. Could have applications in further anomaly detection extending to higher dimensions of entropy in tandem with graph embedding or deep learning approach.
+	
+	
 
 
 
@@ -235,38 +273,6 @@ As we can see, the most effective attach is for sybils to self report scores of 
 Baez, John C
 \textit{Circuitry, EE and chain complexes}.
 \\\texttt{https://math.ucr.edu/home/baez/week288.html}
-
-
-\bibitem{latexcompanion} 
-Baez, John C
-\textit{Physics, Topology, Logic and Computation:A Rosetta Stone}.
-\\\texttt{https://arxiv.org/pdf/0903.0340.pdf}
-
-\bibitem{latexcompanion} 
-PIETER HOFSTRA AND PHILIP SCOTT
-\textit{ASPECTS OF CATEGORICAL RECURSION THEORY}.
-\\\texttt{https://arxiv.org/pdf/2001.05778.pdf}
-
-\bibitem{latexcompanion} 
-David Spivak, Brendan Fong
-\textit{Seven Sketches in Compositionality}.
-\\\texttt{https://math.mit.edu/~dspivak/teaching/sp18/7Sketches.pdf}
-
-\bibitem{latexcompanion} 
-Pierre Baudot
-\textit{The Poincaré-Shannon Machine: Statistical Physics and Machine Learning Aspects of Information Cohomology}.
-\\\texttt{https://www.mdpi.com/1099-4300/21/9/881}
-
-
-\bibitem{latexcompanion} 
-Tobias Fritz
-\textit{A synthetic approach to Markov kernels, conditionalindependence and theorems on sufficient statistics}.
-\\\texttt{https://arxiv.org/pdf/1908.07021.pdf}
-
-\bibitem{latexcompanion} 
-Tatsuya Hagino
-\textit{A Categorical Programming Language}.
-\\\texttt{web.sfc.keio.ac.jp/~hagino/thesis.pdf}
 
 \end{thebibliography}
 \end{document}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.5)  3 DEC 2023 10:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.5)  3 DEC 2023 16:55
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -404,7 +404,29 @@ sep char (CT)
 \stackedbox=\box63
 \@centerbox=\box64
 \c@ROWcellindex@=\count301
-)) (/usr/local/texlive/2023/texmf-dist/tex/latex/physics/physics.sty
+)) (/usr/local/texlive/2023/texmf-dist/tex/latex/algorithmicx/algpseudocode.sty
+Package: algpseudocode 
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/algorithmicx/algorithmicx.sty
+Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
+
+Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
+\c@ALG@line=\count302
+\c@ALG@rem=\count303
+\c@ALG@nested=\count304
+\ALG@tlm=\skip67
+\ALG@thistlm=\skip68
+\c@ALG@Lnr=\count305
+\c@ALG@blocknr=\count306
+\c@ALG@storecount=\count307
+\c@ALG@tmpcounter=\count308
+\ALG@tmplength=\skip69
+)
+Document Style - pseudocode environments for use with the `algorithmicx' style
+) (/usr/local/texlive/2023/texmf-dist/tex/latex/physics/physics.sty
 Package: physics 
 )
 
@@ -412,8 +434,8 @@ LaTeX Warning: You have requested package `',
                but the package provides `quiver'.
 
 Package: quiver 2020/11/27 quiver
-\c@theorem=\count302
-\c@corollary=\count303
+\c@theorem=\count309
+\c@corollary=\count310
 (/usr/local/texlive/2023/texmf-dist/tex/latex/tikz-cd/tikz-cd.sty
 Package: tikz-cd 2021/05/04 v1.0 Commutative diagrams with TikZ
 
@@ -458,14 +480,14 @@ tered.code.tex
 \pgf@yd=\dimen181
 \w@pgf@writea=\write3
 \r@pgf@reada=\read2
-\c@pgf@counta=\count304
-\c@pgf@countb=\count305
-\c@pgf@countc=\count306
-\c@pgf@countd=\count307
+\c@pgf@counta=\count311
+\c@pgf@countb=\count312
+\c@pgf@countc=\count313
+\c@pgf@countd=\count314
 \t@pgf@toka=\toks38
 \t@pgf@tokb=\toks39
 \t@pgf@tokc=\toks40
-\pgf@sys@id@count=\count308
+\pgf@sys@id@count=\count315
 
 (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2023-01-15 v3.1.10 (3.1.10)
@@ -483,8 +505,8 @@ File: pgfsys-common-pdf.def 2023-01-15 v3.1.10 (3.1.10)
 (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.
 code.tex
 File: pgfsyssoftpath.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfsyssoftpath@smallbuffer@items=\count309
-\pgfsyssoftpath@bigbuffer@items=\count310
+\pgfsyssoftpath@smallbuffer@items=\count316
+\pgfsyssoftpath@bigbuffer@items=\count317
 )
 (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.
 code.tex
@@ -515,7 +537,7 @@ Package: pgfcore 2023-01-15 v3.1.10 (3.1.10)
 (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
 (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
 \pgfmath@dimen=\dimen182
-\pgfmath@count=\count311
+\pgfmath@count=\count318
 \pgfmath@box=\box66
 \pgfmath@toks=\toks41
 \pgfmath@stack@operand=\toks42
@@ -541,7 +563,7 @@ code.tex)
 erarithmetics.code.tex)
 (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex)
 (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count312
+\c@pgfmathroundto@lastzeros=\count319
 )) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfint.code.tex)
 (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.co
 de.tex
@@ -579,7 +601,7 @@ File: pgfcorescopes.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgfpic=\box67
 \pgf@hbox=\box68
 \pgf@layerbox@main=\box69
-\pgf@picture@serial@count=\count313
+\pgf@picture@serial@count=\count320
 )
 (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicst
 ate.code.tex
@@ -614,8 +636,8 @@ File: pgfcorearrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
 e.tex
 File: pgfcoreshade.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgf@max=\dimen262
-\pgf@sys@shading@range@num=\count314
-\pgf@shadingcount=\count315
+\pgf@sys@shading@range@num=\count321
+\pgf@shadingcount=\count322
 )
 (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.cod
 e.tex
@@ -680,7 +702,7 @@ Package: tikz 2023-01-15 v3.1.10 (3.1.10)
 (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothan
 dlers.code.tex
 File: pgflibraryplothandlers.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@plot@mark@count=\count316
+\pgf@plot@mark@count=\count323
 \pgfplotmarksize=\dimen267
 )
 \tikz@lastx=\dimen268
@@ -695,19 +717,19 @@ File: pgflibraryplothandlers.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \tikz@figbox@bg=\box73
 \tikz@tempbox=\box74
 \tikz@tempbox@bg=\box75
-\tikztreelevel=\count317
-\tikznumberofchildren=\count318
-\tikznumberofcurrentchild=\count319
-\tikz@fig@count=\count320
+\tikztreelevel=\count324
+\tikznumberofchildren=\count325
+\tikznumberofcurrentchild=\count326
+\tikz@fig@count=\count327
 
 (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.cod
 e.tex
 File: pgfmodulematrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfmatrixcurrentrow=\count321
-\pgfmatrixcurrentcolumn=\count322
-\pgf@matrix@numberofcolumns=\count323
+\pgfmatrixcurrentrow=\count328
+\pgfmatrixcurrentcolumn=\count329
+\pgf@matrix@numberofcolumns=\count330
 )
-\tikz@expandcount=\count324
+\tikz@expandcount=\count331
 
 (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
 s/tikzlibrarytopaths.code.tex
@@ -745,7 +767,7 @@ s.code.tex
 \pgfdecoratedinputsegmentcompleteddistance=\dimen282
 \pgfdecoratedinputsegmentremainingdistance=\dimen283
 \pgf@decorate@distancetomove=\dimen284
-\pgf@decorate@repeatstate=\count325
+\pgf@decorate@repeatstate=\count332
 \pgfdecorationsegmentamplitude=\dimen285
 \pgfdecorationsegmentlength=\dimen286
 )
@@ -763,6 +785,9 @@ File: lstlang2.sty 2023/02/27 1.9 listings language file
 File: lstlang3.sty 2023/02/27 1.9 listings language file
 )
 (./2meme.aux
+
+LaTeX Warning: Label `alg:cap' multiply defined.
+
 
 Package natbib Warning: Citation `latexcompanion' multiply defined.
 
@@ -784,37 +809,37 @@ Package natbib Warning: Citation `latexcompanion' multiply defined.
 )
 \openout1 = `2meme.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-\c@lstlisting=\count326
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+\c@lstlisting=\count333
  (/usr/local/texlive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count327
+\scratchcounter=\count334
 \scratchdimen=\dimen287
 \scratchbox=\box77
-\nofMPsegments=\count328
-\nofMParguments=\count329
+\nofMPsegments=\count335
+\nofMParguments=\count336
 \everyMPshowfont=\toks46
-\MPscratchCnt=\count330
+\MPscratchCnt=\count337
 \MPscratchDim=\dimen288
-\MPnumerator=\count331
-\makeMPintoPDFobject=\count332
+\MPnumerator=\count338
+\makeMPintoPDFobject=\count339
 \everyMPtoPDFconversion=\toks47
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -825,19 +850,19 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring OFF on input line 91.
+Package hyperref Info: Link coloring OFF on input line 93.
 
 (./2meme.out) (./2meme.out)
 \@outlinefile=\write4
 \openout4 = `2meme.out'.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 93.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 95.
 
 
 (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 93.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 95.
 
 
 (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -852,80 +877,213 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 {/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 [2] [3]
 
-LaTeX Warning: Command \textellipsis invalid in math mode on input line 135.
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 137.
 
 
-LaTeX Warning: Command \textellipsis invalid in math mode on input line 135.
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 137.
 
 [4] [5]
-Overfull \hbox (2.05286pt too wide) in paragraph at lines 174--174
+
+./2meme.tex:158: LaTeX Error: \caption outside float.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.158 \caption
+              {Batch Algorithm (permissionless): Entropy Rate (Optimal for n...
+
+? 
+
+./2meme.tex:177: Package algorithmicx Error: Some blocks are not closed!!!.
+
+See the algorithmicx package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.177 \end{algorithmic}
+                       
+? 
+
+./2meme.tex:178: LaTeX Error: \begin{document} ended by \end{algorithm}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.178 \end{algorithm}
+                     
+? 
+./2meme.tex:178: Extra \endgroup.
+<recently read> \endgroup 
+                          
+l.178 \end{algorithm}
+                     
+? 
+
+./2meme.tex:180: LaTeX Error: \caption outside float.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.180 \caption
+              {Online Algorithm (permisioned): Approximate Entropy Rate (cur...
+
+? 
+./2meme.tex:184: Missing \endcsname inserted.
+<to be read again> 
+                   \ALG@currentblock@0 
+l.184 \State
+             $h \gets H$
+? 
+./2meme.tex:184: Extra \endcsname.
+\ALG@makebeginrepeat ...\ALG@thisblock \endcsname 
+                                                  \relax \def \ALG@thisblock...
+l.184 \State
+             $h \gets H$
+? 
+./2meme.tex:185: Missing \endcsname inserted.
+<to be read again> 
+                   \ALG@currentblock@0 
+l.185 \State
+             $n \gets N$ \Comment{these are nodes}
+? 
+./2meme.tex:185: Extra \endcsname.
+\ALG@makebeginrepeat ...\ALG@thisblock \endcsname 
+                                                  \relax \def \ALG@thisblock...
+l.185 \State
+             $n \gets N$ \Comment{these are nodes}
+? 
+./2meme.tex:186: Missing \endcsname inserted.
+<to be read again> 
+                   \ALG@currentblock@0 
+l.186 \For
+          {$h \gets H$}
+? 
+./2meme.tex:186: Extra \endcsname.
+\ALG@makebeginrepeat ...\ALG@thisblock \endcsname 
+                                                  \relax \def \ALG@thisblock...
+l.186 \For
+          {$h \gets H$}
+? 
+[6]
+
+./2meme.tex:194: Package algorithmicx Error: Some blocks are not closed!!!.
+
+See the algorithmicx package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.194 \end{algorithmic}
+                       
+? 
+
+./2meme.tex:195: LaTeX Error: \begin{document} ended by \end{algorithm}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.195 \end{algorithm}
+                     
+? 
+./2meme.tex:195: Extra \endgroup.
+<recently read> \endgroup 
+                          
+l.195 \end{algorithm}
+                     
+? 
+
+Overfull \hbox (2.05286pt too wide) in paragraph at lines 198--198
 [][]\OT1/cmr/bx/n/14.4 Monte Carlo sim-u-la-tion: es-ti-ma-tion via self avoid-
 
  []
 
-[6] [7] [8]
-Overfull \hbox (11.08406pt too wide) in paragraph at lines 221--223
-[]\OT1/cmr/m/n/10 organicDistroDir', 'sym-met-ric-Sy-bilOne', 'sym-met-ric-Ne-g
-One', 'sym-met-ricZero'] 
+[7] [8] [9]
+<./images//f-score-surface-plot.png, id=108, 1168.365pt x 787.94376pt>
+File: ./images//f-score-surface-plot.png Graphic file (type png)
+<use ./images//f-score-surface-plot.png>
+Package pdftex.def Info: ./images//f-score-surface-plot.png  used on input line
+ 255.
+(pdftex.def)             Requested size: 345.00342pt x 345.00107pt.
+
+Overfull \hbox (15.00342pt too wide) in paragraph at lines 255--257
+[][]
  []
 
-[9]
+[10 <./images//f-score-surface-plot.png>]
+<./images//attack-success-suface-plot.png, id=115, 964.60374pt x 904.37875pt>
+File: ./images//attack-success-suface-plot.png Graphic file (type png)
+<use ./images//attack-success-suface-plot.png>
+Package pdftex.def Info: ./images//attack-success-suface-plot.png  used on inpu
+t line 259.
+(pdftex.def)             Requested size: 344.99042pt x 344.99226pt.
+
+Overfull \hbox (14.99042pt too wide) in paragraph at lines 259--261
+[][]
+ []
+
+[11 <./images//attack-success-suface-plot.png>]
 
 Package natbib Warning: There were multiply defined citations.
 
-[10
+[12
 pdfTeX warning (ext4): destination with the same identifier (name{cite.latexcom
 panion}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.272 \end{document}
+l.310 \end{document}
                     
 pdfTeX warning (ext4): destination with the same identifier (name{cite.latexcom
 panion}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.272 \end{document}
+l.310 \end{document}
                     
 pdfTeX warning (ext4): destination with the same identifier (name{cite.latexcom
 panion}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.272 \end{document}
+l.310 \end{document}
                     
 pdfTeX warning (ext4): destination with the same identifier (name{cite.latexcom
 panion}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.272 \end{document}
+l.310 \end{document}
                     
 pdfTeX warning (ext4): destination with the same identifier (name{cite.latexcom
 panion}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.272 \end{document}
+l.310 \end{document}
                     
 pdfTeX warning (ext4): destination with the same identifier (name{cite.latexcom
 panion}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.272 \end{document}
+l.310 \end{document}
                     ] (./2meme.aux
 
 Package natbib Warning: Citation(s) may have changed.
 (natbib)                Rerun to get citations correct.
 
 )
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package rerunfilecheck Info: File `2meme.out' has not changed.
 (rerunfilecheck)             Checksum: C60CC54500971C883B9BE64F35F20C0D;1526.
  ) 
 Here is how much of TeX's memory you used:
- 25322 strings out of 476025
- 477837 string characters out of 5790017
- 1861388 words of memory out of 5000000
- 45303 multiletter control sequences out of 15000+600000
+ 25933 strings out of 476025
+ 488011 string characters out of 5790017
+ 1862388 words of memory out of 5000000
+ 45899 multiletter control sequences out of 15000+600000
  521860 words of font info for 69 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 98i,6n,103p,1385b,437s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 98i,6n,103p,1385b,574s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></
@@ -942,11 +1100,13 @@ ve/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/
 3/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2023/t
 exmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2023/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on 2meme.pdf (10 pages, 241630 bytes).
+xmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2023/tex
+mf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2023
+/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on 2meme.pdf (12 pages, 1193810 bytes).
 PDF statistics:
- 194 PDF objects out of 1000 (max. 8388607)
- 146 compressed objects within 2 object streams
- 27 named destinations out of 1000 (max. 500000)
- 77 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 217 PDF objects out of 1000 (max. 8388607)
+ 159 compressed objects within 2 object streams
+ 29 named destinations out of 1000 (max. 500000)
+ 87 words of extra memory for PDF output out of 10000 (max. 10000000)
 
