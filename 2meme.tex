@@ -14,6 +14,7 @@
 \usepackage{ amssymb }
 \usepackage{musicography}
 %\usepackage[linesnumbered,ruled]{algorithm2e}
+\usepackage{algorithm}
 \usepackage{algpseudocode}
 \usepackage{physics}
 \NeedsTeXFormat{LaTeX2e}
@@ -102,9 +103,15 @@
 
 \setcounter{secnumdepth}{0}
 
+\section{Foreward}
+The following is a solution of a long standing problem, how to create a consensus process that rewards good behavior and mitigates bad behavior directly. A fundamental problem with existing blockchain technology is that which it aims to achieve decentralization, both the logic and the algorithmic complexity prevent existing consensus protocols limit the group of individuals who can mine to a small few. A core requirement to make mining accessible to the average person i.e. run on consumer hardware, is to remove the barrier to entry caused by proof or work which requires expensive hardware or proof of stake which requites substantial financial capacity. An consensus protocol that's accessible to the average consumer will make mining a viable alternative to application hosting and monetization of the web as a whole, as well as create new systems of governance that can engage the average person directly. It turns out that the solution is to provide incentives to nodes for acting in a way that optimizes their consistency (the C in the CAP theorem) and penalizes for network partitions.
+
+2MEME is named because it incorporates two memetic concepts into a sybil attack resistance model, relative entropy or information gain defined by adherence to common behavior in a system and node influence which calculates how adherent the total set of nodes is to that node's behavior. The adherence to a performance 'meme' is how rewards are generated, essentially paying nodes for being the most consistent and the adherence to an influence 'meme' is how sybil behavior is determined; essentially being the least influential, or having the most in common with everyone. It's also sort of the sequal to an older approach to solving the above problem, which was called MEME, and differed in that it didn't use information gain as the feature space, opting to try and define a classifier and passing in a covariance matrix into the self-avoiding walk below. That older version, which became Constellation's PRO, relied on a set of pre-trusted peers which helped with security which is a similar approach applied by most DAG protocols, but essentially was a federated proof of authority. The improvement comes from application of a previous work, still in preprint, called the generative calculus, and the algorithm/results here will be used to expand upon generative calculus in time for peer review. 2MEME's implementation within the reality protocol is completely permission-less, but it could be re-written for a permissionned environment which would result in a potential improvement on fault tolerance (at least algorithmically).
+
+This works is in pre-print and as of now a first-draft.
 
 \section{Introduction}
-For a distributed system to maintain consistency (the C in the CAP theorem), it needs to optimize information gain and minimize discrepancies. One set of approaches rely on trust or reputation models to select between potentially conflicting updates from untrusted peers. There are many approaches to solving reputation problems in p2p networks. The most famous is Eigentrust, and many expansions upon the base framework, such as Honestpeer and Powertrust. Due to the curse of dimensionality they all employ some type of random walk to explore the search space of transitive trust between nodes, calculating a probability distribution via monte carlo integration over probabilistic scores of all peers, provided by each peer. These expansions typically focus on finding new features or representations of trust, such as in deepwalk or node2vec, which create an embedding of social data to normalize the edge weights of the peer graph.
+For a distributed system to maintain consistency , it needs to optimize information gain and minimize discrepancies. One set of approaches rely on trust or reputation models to select between potentially conflicting updates from untrusted peers. There are many approaches to solving reputation problems in p2p networks. The most famous is Eigentrust, and many expansions upon the base framework, such as Honestpeer and Powertrust. Due to the curse of dimensionality they all employ some type of random walk to explore the search space of transitive trust between nodes, calculating a probability distribution via monte carlo integration over probabilistic scores of all peers, provided by each peer. These expansions typically focus on finding new features or representations of trust, such as in deepwalk or node2vec, which create an embedding of social data to normalize the edge weights of the peer graph.
 
 This paper follows a similar approach using entropy or disorder across peer behavior and is specifically applied to a dag-based multi-layered consensus protocol. Whereas many approaches such as Eigentrust require a seed or whitelist of authority nodes to base trust upon, this is insufficient when requiring decentralization such as for distributed consensus networks like cryptocurrencies. 2MEME circumvents this by determining correctness without pre-trusted peers, allowing nodes to join and leave and preventing centralized control over consensus.
 
@@ -115,11 +122,13 @@ Periodically, a self avoiding random walk is performed on a graph of nodes repre
 The goal of MEME is to improve upon PRO models by explicitly using an information gain metric to converge on an accepted state of a distributed system, via consensus.This achieves real elasticity comparable to elastic infrastructure like Elasticsearch and Elastic Map Reduce, as well as objective decentralization operating without potentially fraudulent human input.
 
 \section{System Architecture}
-The system considered here consists of a two layer consensus protocol, with two separate consensus processes, L1 and L0, directly influencing each other. Future work incorporating more consensus layers can be formulated using the Poincare Protocol and Protocol Topology specified in Blockchain Cohomology.
+The system considered here consists of a two layer consensus protocol, with two separate consensus processes, L1 and L0, directly influencing each other. Future work incorporating more consensus layers can be formulated using the Poincare Protocol and Protocol Topology specified in Blockchain Cohomology\footnote{Meldman-Floch, Wyatt, ``Blockchain Cohomology: Sec 23' \\ http://ceur-ws.org/Vol-2478/paper2.pdf}.
 
 L1 peers perform a federated consensus of $O(\sum peers/3)$ complexity, converging on the state of each peer’s state cache. The contents of each state cache is a ledger of Addresses and collection of Transactions: data structures performing the transfer of a numerical amount (tokens) from one Address to another Address. Each Address has an associated linked list formed out of Transactions sent from this Address. The links are recursive cryptographic signature hashes between each sequential transaction at a discrete Ordinal.
 
 Periodically, as each L1 node reaches the limit of its mempool or in response to a timed trigger, they initiate a consensus process, acting as an ‘owner’ peer, which selects two ‘facilitator’ peers to share its state cache with. The two facilitator peers also share their state cache with each other and then the owner peer. The output of this process is a data structure, signed by the owner and facilitators, called a ‘block’ which consists of each peer’s state cache data and two ‘parent edges’ called Tips, which are hashes of previous blocks; the end result is a triangle, where two corners are tips and the third is the new block. This can be conceptualized as a ‘triangulation of state’ which forms a forward arrow of time out of parallel-process state transition data. This is realized as a data structure called the ‘Data Dependency Graph’ which is a directed acyclic graph of blocks with two parent edges, and three dimensions; namely, height, width and depth. 
+
+
 
 These blocks constitute a directed acyclic graph called the Data Dependency Graph and their contents form a ledger of Addresses. Both of these have a poset topology, from which the forward arrow of time can be constructed out of parallel events. Each block is then spread across all L1 and L0 peers via rumor based gossip, so that they can be used as ‘Tips’ to form edges between old and new blocks.
 
@@ -134,8 +143,7 @@ In both L0 and L1, a 'double spend' or submission of invalid data as valid, with
 \section{Minimizing the Entropy Rate}
 Information gain can be formulated as the reduction of entropy or disorder in a dynamical system and depending on the characteristics of the system, it is calculated in one of many ways. For the purposes of 2MEME, which is formulated for application to consensus networks, it is calculated as a stochastic process.
 	A stochastic process is an indexed sequence of random variables that do not need to be independent or identically distributed. In a consensus network, each peer continuously proposes variable state data, converging on an accepted state according to the rules of the consensus algorithm. This state data, in our case called blocks, can be independent or dependent on each other; and the amount of blocks as well as the specific blocks proposed can fluctuate or differ completely. Each block has an indexed order, or in the case of the system architecture above, a poset topology; meaning that they are strictly ordered. Thus these distributed systems fulfill the requirements of a stochastic process and can be modeled as such. While it is possible to apply MEME to linear blockchain protocols, it was formulated specifically for use in the system architecture above, with three indices: height, width and depth. The following formulas are specific to this poset topology.
-	Consider a set of peers $N = (n_0 …n_i)$, acting as random variables which produce outputs $O = (o_{0,0,0} … o_{h,w,d})$, such that $h<w$ and $w>d$, the system has a strict order given by poset topology. These indices can be reduced to discrete indexes, such that each index, there is a binary value representing each node proposing a specific block or not. This is calculated using following formula for join entropy (see ref 3) 
-	
+	Consider a set of peers $N = (n_0 …n_i)$, acting as random variables which produce outputs $O = (o_{0,0,0} … o_{h,w,d})$, such that $h<w$ and $w>d$, the system has a strict order given by poset topology. These indices can be reduced to discrete indexes, such that each index, there is a binary value representing each node proposing a specific block or not. This is calculated using following formula\footnote{thm 2.4 'https://math.nd.edu/assets/275279/leblanc_thesis.pdf'} for joint entropy	
 \begin{equation}
 H(X_1, \dots, X_N) = -\sum_{x_1 \in \chi_1} \dots \sum_{x_n \in \chi_n} P(x_1,  \dots, x_n) log_2 [P(x_1, \dots, x_n)]
 \end{equation}
@@ -146,7 +154,7 @@ If a block index contains each node, then the specific block has entropy of 0. I
 Finally, the inner product of entropy rates are used to construct a feature space $F$ before passing into the random walk below (first part of 2MEME)
 
 \begin{equation}
-F = \sum_i \lambda \ket{p_i} \bra{p_i}
+F = \sum_N \lambda_X \ket{X_i} \bra{X_i}
 \end{equation}
 
 where $\lambda$ is a normalization function that maps the sum to between -1 and 1.
@@ -155,6 +163,7 @@ where $\lambda$ is a normalization function that maps the sum to between -1 and 
 Two algorithms for gathering entropy data are presented below. The key difference is the rate and method of gathering entropy rate. The first enforces a service level agreement requiring each peer to train its model at the same rate, achieving greater determinism and enabling a token reward model for an open network. In the batch model, at every snapshot height-diff interval, each peer proposes a new predicted trust vector within their proposals. They are then used to weight peer proposals for majority snapshot calculation until snapshot height-diff interval +1.
 The second, online algorithm, is a greedy approach that reduces the in-memory cost of running each peer’s model on a deterministic schedule albeit at the loss of determinism that would allow a fair token reward model. It is more suited perhaps to applications that can relax determinism for  open network rewards to focus on elasticity. The online algorithm periodically gossips predicted trust vectors to peers over the Peer api endpoint (“~/trust”), which are then cached and fed into the TrustManager on a time based periodic interval.
 
+\begin{algorithm}
 \caption{Batch Algorithm (permissionless): Entropy Rate (Optimal for node rewards/cycling between active and passive nodes)}\label{alg:cap}
 \begin{algorithmic}
 \Require $h, i \in \mathbb{N}$
@@ -162,43 +171,57 @@ The second, online algorithm, is a greedy approach that reduces the in-memory co
 \State $h \gets H$
 \State $n \gets N$ \Comment{these are nodes}
 \For{$h \gets H$}
-\If{$h \bmod i-1 == 0$}
+\State $\foreach n \exist n.mempool | n.mempool.size = s \in \mathbb{N} \& n.mempool.triggersize = t \in \mathbb{N} $
+\If{$h \bmod i-1 == 0 \& n.mempool.size > n.mempool.t$}
     \State $state space = entropy(N)$ \Comment{Entropy rate relative to GCS}
     \State $probability space = walk (state space)$  \Comment{Montecarlo method}
-    \State send encrypted scores to peers
+    \State $send encrypted scores with snapshot to peers$
+    \State $choose proposed snapshots weighted by cumulative sum of scores$
 
-\Else{$h \bmod i-1 == 0$}
-    \State send unencrypted scores to peers
+
+\ElseIf{$h \bmod i-1 == 0 \& n.mempool.size > n.mempool.t$}
+    \State $send unencrypted scores with snapshot to peers$
     \If {$valid(n) \forall n \in N$}
     \For{$n \gets N$}
    	 \State update scores for peers
-	 \State update active and passive peerlist
-
+	 \State $choose proposed snapshots weighted by cumulative sum of scores$
+	 \State $update active and passive peerlist$
+\Else {$n.mempool.size > n.mempool.t $}
+	    \State $send snapshot to peers$
+	    \State $choose proposed snapshots weighted by cumulative sum of scores$
+	    
 \end{algorithmic}
 \end{algorithm}
 
+\begin{algorithm}
 \caption{Online Algorithm (permisioned): Approximate Entropy Rate (current implementation, optimal for minimal resource usage, training model over shorter periods should help output, spamming results/sybil collusion should be detected by model, good test)}\label{alg:cap}
 \begin{algorithmic}
 \Require $h, i \in \mathbb{N}$
 \Require $H \ggg i$
 \State $h \gets H$
 \State $n \gets N$ \Comment{these are nodes}
-\For{$h \gets H$}
-\If{$h \bmod i == 0$}
-    \State $state space = entropy(N)$ \Comment{Entropy rate relative to GCS}
-    \State $probability space = walk (state space)$  \Comment{Montecarlo method}
-    \State send encrypted scores to peers
-    \State update scores for peers
-    \State update active and passive peerlist
+\State $e = rand(bool) $
+\State $\foreach n \exist n.mempool | n.mempool.size = s \in \mathbb{N} \& n.mempool.triggersize = t \in \mathbb{N} $
+\While{$true$}
+\If{$n.mempool.size > n.mempool.t \&  e == True$}
+	 \State $state space = entropy(N)$ \Comment{Entropy rate relative to GCS}
+	 \State $probability space = walk (state space)$  \Comment{Montecarlo method}
+	 \State $send snapshot with scores to peers$
+	 \State $update active and passive peerlist$
+    
+\Else{$n.mempool.size > n.mempool.t$}
+	\State $send snapshot to peers$
+	\State choose proposed snapshots weighted by cumulative sum of scores
+
 
 \end{algorithmic}
 \end{algorithm}
 
 
 \section{Monte Carlo simulation: estimation via self avoiding random walk}
-Next a self-avoiding walk is employed to perform community detection, the output of which can be used to calculate availability and node influence. Note, to avoid confusion between a consensus network and graph, nodes are called servers below.
+Next a self-avoiding walk is employed to perform community detection, the output of which can be used to calculate availability and node influence\footnote{https://www.sciencedirect.com/science/article/pii/S0378437118304242}. Note, to avoid confusion between a consensus network and graph, nodes are called servers below.
 
-The output of the entropy rate calculation is a graph, with a server’s peers corresponding to nodes and edges as the relative joint entropy between the server and its peers. The edges are a ‘view’ of the performance of each peer relative to itself. This is passed to the TrustManager, a background process that performs a self-avoiding random walk across the graph of nodes connected by relative joint entropy and outputs a vector containing a trust score for each node relative to the server hosting running the process (predicted trust).
+The output of the entropy rate calculation is a graph, with a server’s peers corresponding to nodes and edges as the relative joint entropy between the server and its peers. The edges are a ‘view’ of the performance of each peer relative to itself. This matrix (namely $F = \sum_N \lambda_X \ket{X_i} \bra{X_i}$) is passed to the TrustManager, a background process that performs a self-avoiding random walk across the graph of nodes connected by relative joint entropy and outputs a vector containing a trust score for each node relative to the server hosting running the process (predicted trust).
 
 The self avoiding walk is performed by the method runwalkfeedbacksinglenode, which performs a series of feedback rounds, walking on the input graph and adjusting the edge weights between nodes for each successive round. The total number of feedback cycles are configurable and in general the larger number of cycles has a more accurate output, albeit at the cost of increasing resource intensity. The configurations are batchIterationSize and maxIterations. On each batch iteration a random path length from a random number generator (between 1 and total nodes) is chosen and then passed to the walk. The walk goes through and only walks on positive edges (relative entropy scores are normalized between -1 and 1), keeps track of nodes visited so far, then the sampling function determines the next neighbor to walk on. This is determined according to the normalized probability (via method normalizedPositiveEdges), such that the positive edge subset sum up to one.
 
@@ -208,15 +231,15 @@ Finally there is batch convergence in runWalkBatchesFeedback. This converges whe
 
 One difference from similar models is the incorporation of negative scores. After the batches are performed, it explores the negative scores (val negativeScores) of nodes that it trusts (positive outputs of the walk). On the first cycle, the model only reaches nodes with positive transitive trust, which can be considered the most influential servers. These most influential servers are relative to the host server, and the servers they distrust have their scores down weighted. The positive scores and negative scores are added, then weighted by how influential the server proposing these scores is. They are weighted such that its negative edge trust quantity*(influential node’s score/numNegEdges), after that they are all normalized via renormalizeAfterNegative. Output, $P_i^h$ is defined as follows.
 
-Given a source node $i$, suppose it is possible to reach $N_i(h)$ different nodes performing walks of length $h$, departing from $i$. Then we say that $i$ has $N_i$ neighbors at a distance $h$. Each neighbor is reached with a different probability, which is represented by the vector $P_i^h = \{ P_1^(h) \dots P_{N_i(h)}^(h)$
+Given a source node $i$, suppose it is possible to reach $N_i(h)$ different nodes performing walks of length $h$, departing from $i$. Then we say that $i$ has $N_i$ neighbors at a distance $h$. Each neighbor is reached with a different probability, which is represented by the vector $P_i^h = \{ P_1^{(h)} \dots P_{N_i(h)}^{(h)}$ Given $P_i^h$,the accessibility $k_i(h)$, defined below is 
 	
 	
 \begin{equation}
-k(h) = \exp (-\sum_j p^{h}_j log p^{h}_j )
+k_(h) = \exp (-\sum_j p^{h}_j log p^{h}_j )
 \end{equation}
 
 \section{Classification logic}
-Now we have a manifold of node influence, we can look for signals between sybil and non-sybil nodes and build a classifier. The classifier defined as follows simply looks at the first three eigenvectors and their eigenvalues to identify sybil nodes. Its quite possible to improve upon the experimental results using a differential equation solver as provided in tensorfow or pytorch, which would be able at least incorporate higher order terms if not catch hidden nonlinear signals
+Now we have a manifold of node influence, we can look for signals between sybil and non-sybil nodes and build a classifier. The classifier defined as follows simply looks at the first three eigenvectors and their eigenvalues to identify sybil nodes. Its quite possible to improve upon the experimental results using a differential equation solver as provided in tensorflow \footnote{https://www.tensorflow.org/probability/api_docs/python/tfp/math/ode}or pytorch\footnote{https://github.com/rtqichen/torchdiffeq}, which would be able at least incorporate higher order terms if not catch hidden nonlinear signals
 
 First a new vector consisting of the successive diffs, normalized between 0 and 1, between all elements in $P_i^h$ is calculated, namely $d_i^h$ which has $dim(i, h-1$ then generate a manifold from it's self-tensor
 
@@ -239,9 +262,9 @@ Finally, if the total non-sybil nodes to be returned are less than $10\%$ of the
 \section{Experimental results}
 The following results were generated from a simulation involving 100 node instances. Several sumulations were run for various types of attacks, which will be outlined below, and with varying percentages of nodes all acting in unison from 0 to 100 in 20 percent intervals. Each type of attack can be reduced down to sybil nodes reporting scores of themselves or non-sybil nodes according to a distribution i,e low scores for non-sybil or high scores for sybil nodes. In the following visualizations, each attack type occurs on the y axis, the sybil percentage is given by the x axis and the z axis is the f-score of the model.
 
-Note that many different scenarios are tested within unit tests and the symulation framework, however a subset based off of the actual protocol's implementation (whithin which this model is used) are 
+Note that many different scenarios are tested within unit tests and the simulation framework, notably analysis of sybil score cliques of various sizes, however the model was equally as good at identifying them as for unique scores (1.0, -1.0, 0.5 etc. except for 0.0), but the test data is of different dimensionality of the one case that has less than optimal performance, namely forged scores of 0.0. It's also worth noting the as the clique size increases to the size of the total set of nodes, we see performance mirroring that of the perfect non-sybil case, which is expected. 
 
-The attacks tested are as follows:
+The tests used in visualization are as follows:
 
 organicDistroDir: no attack, organic behavior from each node
 
@@ -249,19 +272,23 @@ symmetricSybilOne/Sybil nodes forging their scores as 1.0: all sybil nodes git e
 
 symmetricNegOne/Sybil nodes forging their scores as -1.0: all sybil nodes choose min value for each other in their proposal
 
-symmetricZeroSybil nodes forging their scores as 0.0: all sybil nodes choose 0
+symmetricZeroSybil nodes forging their scores as 0.0: all sybil nodes choose 0.0 as their proposal for each other
 
 
 \includegraphics[width=\textwidth, height=\textwidth]{f-score-surface-plot}
-Here we have a surface plot of fscore according to attack and sybil threshold. As we can see, the most effective attach is for sybils to self report scores of 0.0, yielding an f-score of ~0.7. This is still a solid score for any model and compared to existing consensus models which have an fscore of 0 for sybil percentages above 50 percent, is remarkably successful and provides a huge comparative advantage.
+Here we have a surface plot of fscore according to attack and sybil threshold. As we can see, the most effective attack is for sybils to self report scores of 0.0, yielding an f-score of ~0.7. This is still a solid score for any model and compared to existing consensus models which have an fscore of 0 for sybil percentages above 50 percent, is remarkably successful and provides a huge comparative advantage.
 
 
 \includegraphics[width=\textwidth, height=\textwidth]{attack-success-suface-plot}
 Here we have a plot of the difference between nodes cheating and not cheating. The vertical axis is an the percentage of nodes selected for consensuls, vs actually submitting scores based upon the true entropy rate. The ledge on the top left ("sybil" set doesn't cheat) as well as the $100\%$ sybil case on the right, shows $100\%$ of sybils selected for next round. 
 
 \section{Further investigation}
-	Modifications to the self-avoiding walk implementation could yield positive effects. As in many monte carlo integrations, the direction chosen at each step could be chosen according to a distance metric as opposed to randomly. Albeit, at the computational cost of increasing the dimensionality the trust graph’s edges as well as in-memory expense of the metric calculation. Notably, this approach was employed by (N. Koroviako) who used jaccard similarity to define trust out of relationships between review texts; as 2MEME approach focuses on information gain, it would follow to select the next path at each step based on minimizing entropy rate of second order proposals (each edge would contain raw proposals, and choose the next node that has the minimal entropy rate compared to the current’s proposals.)
-	Use Hausdorff clustering to identify/embed hierarchies, could lead to a shared security model. Could have applications in further anomaly detection extending to higher dimensions of entropy in tandem with graph embedding or deep learning approach.
+	Modifications to the self-avoiding walk implementation could yield positive effects. As in many monte carlo integrations, the direction chosen at each step could be chosen according to a distance metric as opposed to randomly. Albeit, at the computational cost of increasing the dimensionality the trust graph’s edges as well as in-memory expense of the metric calculation. Notably, this approach was employed by N. Koroviako\footnote{https://www.sciencedirect.com/science/article/pii/S1877050912003936?ref=pdf_download&fr=RR-2&rr=8306a2ef2866cee9} who used jaccard similarity to define trust out of relationships between review texts; as 2MEME approach focuses on information gain, it would follow to select the next path at each step based on minimizing entropy rate of second order proposals (each edge would contain raw proposals, and choose the next node that has the minimal entropy rate compared to the current’s proposals.)
+	As our SAW has non-lineal (fractal) dimensionality\footnote{http://www.math.uchicago.edu/~lawler/miami1.pdf}, another possible improvement could come from using Hausdorff clustering\footnote{https://arxiv.org/pdf/0801.0748.pdf} to identify/embed hierarchies, could have applications in further anomaly detection providing higher dimensions of entropy, which would be useful for improving the classifier with a differential equation solver with graph embedding or deep learning approach. Note that the node influence metric calculated by the SAW is not strictly defined (obeys triangle equality) so it is actually a compatible hausdorf measure. 
+	Also it would be great to implement a gradient flow plot to show the effect of distinct entropy and score cliques (as mentioned in the results section.)
+	
+\section{Consclusion}
+It's been shown that 2MEME is able to optimize consistency by rewarding nodes according to their information gain. Also by showing a lack of gain for sybil nodes, moreover a decrease in selection when identified as performing a sybil attack, 2MEME is able to provide a fair playing field for honest nodes.
 	
 	
 

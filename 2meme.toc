@@ -1,8 +1,10 @@
-\contentsline {section}{Introduction}{2}{section*.2}%
-\contentsline {section}{System Architecture}{3}{section*.3}%
-\contentsline {section}{Minimizing the Entropy Rate}{4}{section*.4}%
-\contentsline {section}{Permissionless vs Permissioned approaches}{5}{section*.5}%
-\contentsline {section}{Monte Carlo simulation: estimation via self avoiding random walk}{7}{section*.6}%
-\contentsline {section}{Classification logic}{8}{section*.7}%
-\contentsline {section}{Experimental results}{9}{section*.8}%
-\contentsline {section}{Further investigation}{11}{section*.9}%
+\contentsline {section}{Foreward}{2}{section*.2}%
+\contentsline {section}{Introduction}{3}{section*.3}%
+\contentsline {section}{System Architecture}{4}{section*.4}%
+\contentsline {section}{Minimizing the Entropy Rate}{5}{section*.5}%
+\contentsline {section}{Permissionless vs Permissioned approaches}{7}{section*.6}%
+\contentsline {section}{Monte Carlo simulation: estimation via self avoiding random walk}{8}{section*.7}%
+\contentsline {section}{Classification logic}{10}{section*.8}%
+\contentsline {section}{Experimental results}{11}{section*.9}%
+\contentsline {section}{Further investigation}{13}{section*.10}%
+\contentsline {section}{Consclusion}{14}{section*.11}%
