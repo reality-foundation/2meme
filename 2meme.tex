@@ -17,6 +17,7 @@
 \usepackage{algorithm}
 \usepackage{algpseudocode}
 \usepackage{physics}
+\usepackage{fancyhdr}
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{quiver}[2020/11/27 quiver]
 \newtheorem{theorem}{Theorem}[section]
@@ -91,6 +92,13 @@
 \date{11/27/2023}
 \setlength{\parskip}{1em}
 
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[c]{}
+\fancypagestyle{FirstPage}{
+\lfoot{\copyright2023 Wyatt Meldman-Floch} 
+}
+
 \begin{document}
 \maketitle
 
@@ -104,6 +112,7 @@
 \setcounter{secnumdepth}{0}
 
 \section{Forward}
+\thispagestyle{FirstPage}
 The following is a solution of a long standing goal in the crypto ecosystem: creating a consensus process that rewards good behavior and mitigates bad behavior, directly. A fundamental problem with existing blockchain technology is that while it aims to achieve decentralization, both the logic and the algorithmic complexity of existing consensus protocols limit the group of individuals who can mine to a small few. A core requirement to make mining accessible to the average person i.e. run on consumer hardware, is to remove the barrier to entry caused by proof or work which requires expensive hardware or proof of stake which requires substantial financial capacity. A consensus protocol that's accessible to the average consumer will make mining a viable alternative to application hosting and monetization of the web as a whole; as well as create new systems of governance that can engage the average person to participate in directly. It turns out that the solution is to provide incentives to nodes for acting in a way that optimizes their consistency (the C in the CAP theorem) and penalizes for network partitions.
 
 2MEME is partially named because it incorporates two memetic concepts into a sybil attack resistance model: relative entropy or information gain, defined by the commonality of each node's state and node influence, which calculates how adherent each node's behavior is relative to the total set of nodes' behavior. The adherence to a performance 'meme' is how rewards are generated, essentially paying nodes for being the most consistent (common state with the whole) and the adherence to an influence 'meme' is how sybil behavior is determined; nodes that are not sybil follow a noisy distribution, while sybil nodes are identified by a strong signal. It's also sort of the sequal to an older approach to solving the above problem, which was called MEME. MEME differs from 2MEME in that it didn't use information gain as the feature space, opting to try and define a classifier and passing in a covariance matrix into the self-avoiding walk below, them normalizing using entropy of the walk output. That older version, which became Constellation's PRO, relied on a set of pre-trusted peers, which is a similar approach applied by most DAG protocols, but essentially became a federated proof of authority. The improvement, which became 2MEME, stems from application of a previous work, still in preprint, called the Generative Calculus, and the algorithm/results here will be used to expand upon generative calculus in that paper. 2MEME's implementation within the reality protocol is completely permission-less, but it could be re-written for a permissionned environment which would result in a potential improvement on fault tolerance (at least algorithmically, as it removes a serial state transition).

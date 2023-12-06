@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.5)  5 DEC 2023 16:07
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.5)  5 DEC 2023 16:20
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -436,6 +436,19 @@ Document Style - pseudocode environments for use with the `algorithmicx' style
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/physics/physics.sty
 Package: physics 
 )
+(/usr/local/texlive/2023/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+Package: fancyhdr 2022/11/09 v4.1 Extensive control of page headers and footers
+
+\f@nch@headwidth=\skip70
+\f@nch@O@elh=\skip71
+\f@nch@O@erh=\skip72
+\f@nch@O@olh=\skip73
+\f@nch@O@orh=\skip74
+\f@nch@O@elf=\skip75
+\f@nch@O@erf=\skip76
+\f@nch@O@olf=\skip77
+\f@nch@O@orf=\skip78
+)
 
 LaTeX Warning: You have requested package `',
                but the package provides `quiver'.
@@ -801,24 +814,24 @@ LaTeX Warning: Label `alg:cap' multiply defined.
 )
 \openout1 = `2meme.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 94.
-LaTeX Font Info:    ... okay on input line 94.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 94.
-LaTeX Font Info:    ... okay on input line 94.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 94.
-LaTeX Font Info:    ... okay on input line 94.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 94.
-LaTeX Font Info:    ... okay on input line 94.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 94.
-LaTeX Font Info:    ... okay on input line 94.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 94.
-LaTeX Font Info:    ... okay on input line 94.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 94.
-LaTeX Font Info:    ... okay on input line 94.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 94.
-LaTeX Font Info:    ... okay on input line 94.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 94.
-LaTeX Font Info:    ... okay on input line 94.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 102.
+LaTeX Font Info:    ... okay on input line 102.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 102.
+LaTeX Font Info:    ... okay on input line 102.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 102.
+LaTeX Font Info:    ... okay on input line 102.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 102.
+LaTeX Font Info:    ... okay on input line 102.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 102.
+LaTeX Font Info:    ... okay on input line 102.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 102.
+LaTeX Font Info:    ... okay on input line 102.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 102.
+LaTeX Font Info:    ... okay on input line 102.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 102.
+LaTeX Font Info:    ... okay on input line 102.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 102.
+LaTeX Font Info:    ... okay on input line 102.
 \c@lstlisting=\count334
  (/usr/local/texlive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -842,20 +855,20 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring OFF on input line 94.
+Package hyperref Info: Link coloring OFF on input line 102.
 
 (./2meme.out) (./2meme.out)
 \@outlinefile=\write4
 \openout4 = `2meme.out'.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 96.
-
+LaTeX Font Info:    Trying to load font information for U+msa on input line 104
+.
 
 (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 96.
-
+LaTeX Font Info:    Trying to load font information for U+msb on input line 104
+.
 
 (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -867,67 +880,68 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \openout5 = `2meme.toc'.
 
 
-[2]
-Overfull \hbox (35.23126pt too wide) in paragraph at lines 111--111
+[2{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
+}]
+Overfull \hbox (35.23126pt too wide) in paragraph at lines 120--120
 [][][]\OT1/cmr/m/n/8 https://github.com/reality-foundation/reality/blob/enable[
 ]model/simulation[]data/surface[]plot.py| 
  []
 
 [3] [4]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 134.
+put line 143.
  [5]
 
-LaTeX Warning: Command \textellipsis invalid in math mode on input line 178.
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 187.
 
 
-LaTeX Warning: Command \textellipsis invalid in math mode on input line 178.
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 187.
 
 [6] [7] [8]
-Overfull \hbox (2.05286pt too wide) in paragraph at lines 266--266
+Overfull \hbox (2.05286pt too wide) in paragraph at lines 275--275
 [][]\OT1/cmr/bx/n/14.4 Monte Carlo sim-u-la-tion: es-ti-ma-tion via self avoid-
 
  []
 
 
-Overfull \hbox (178.70781pt too wide) in paragraph at lines 269--269
+Overfull \hbox (178.70781pt too wide) in paragraph at lines 278--278
 [][][]\OT1/cmr/m/n/8 https://github.com/reality-foundation/reality/tree/enable[
 ]model/modules/sdk/src/main/scala/org/tessellation/sdk/infrastructure/trust| 
  []
 
 [9] [10]
-Overfull \hbox (248.44771pt too wide) in paragraph at lines 287--287
+Overfull \hbox (248.44771pt too wide) in paragraph at lines 296--296
 [][][]\OT1/cmr/m/n/8 https://github.com/reality-foundation/reality/blob/enable[
 ]model/modules/sdk/src/main/scala/org/tessellation/sdk/infrastructure/trust/Tru
 stModel.scala| 
  []
 
 [11] [12]
-<./images//f-score-surface-plot.png, id=152, 1168.365pt x 787.94376pt>
+<./images//f-score-surface-plot.png, id=153, 1168.365pt x 787.94376pt>
 File: ./images//f-score-surface-plot.png Graphic file (type png)
 <use ./images//f-score-surface-plot.png>
 Package pdftex.def Info: ./images//f-score-surface-plot.png  used on input line
- 324.
+ 333.
 (pdftex.def)             Requested size: 345.00342pt x 345.00107pt.
 
-Overfull \hbox (15.00342pt too wide) in paragraph at lines 324--326
+Overfull \hbox (15.00342pt too wide) in paragraph at lines 333--335
 [][]
  []
 
 [13 <./images//f-score-surface-plot.png>]
-<./images//attack-success-suface-plot.png, id=160, 964.60374pt x 904.37875pt>
+<./images//attack-success-suface-plot.png, id=161, 964.60374pt x 904.37875pt>
 File: ./images//attack-success-suface-plot.png Graphic file (type png)
 <use ./images//attack-success-suface-plot.png>
 Package pdftex.def Info: ./images//attack-success-suface-plot.png  used on inpu
-t line 328.
+t line 337.
 (pdftex.def)             Requested size: 344.99042pt x 344.99226pt.
 
-Overfull \hbox (14.99042pt too wide) in paragraph at lines 328--330
+Overfull \hbox (14.99042pt too wide) in paragraph at lines 337--339
 [][]
  []
 
 
-Overfull \hbox (38.5544pt too wide) in paragraph at lines 332--332
+Overfull \hbox (38.5544pt too wide) in paragraph at lines 341--341
 [][][]\OT1/cmr/m/n/8 https://www.sciencedirect.com/science/article/pii/S1877050
 912003936?ref=pdf[]download&fr=RR-
  []
@@ -936,23 +950,17 @@ Overfull \hbox (38.5544pt too wide) in paragraph at lines 332--332
 
 LaTeX Warning: There were multiply-defined labels.
 
-
-Package rerunfilecheck Warning: File `2meme.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `2meme.out':
-(rerunfilecheck)             Before: BA76181C15097DE7DEB2738B883C9702;1707
-(rerunfilecheck)             After:  14F6C2E8DC51B4423230A297A11EA9A9;1702.
+Package rerunfilecheck Info: File `2meme.out' has not changed.
+(rerunfilecheck)             Checksum: 14F6C2E8DC51B4423230A297A11EA9A9;1702.
  ) 
 Here is how much of TeX's memory you used:
- 26007 strings out of 476025
- 489382 string characters out of 5790017
+ 26201 strings out of 476025
+ 492188 string characters out of 5790017
  1863388 words of memory out of 5000000
- 45954 multiletter control sequences out of 15000+600000
- 521346 words of font info for 67 fonts, out of 8000000 for 9000
+ 46142 multiletter control sequences out of 15000+600000
+ 521681 words of font info for 68 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 98i,8n,103p,1735b,452s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 98i,12n,103p,1735b,454s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></
@@ -971,11 +979,12 @@ exmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2023/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf
 -dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2023/texmf-d
 ist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2023/tex
-mf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on 2meme.pdf (15 pages, 1201917 bytes).
+mf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2023
+/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
+Output written on 2meme.pdf (15 pages, 1204770 bytes).
 PDF statistics:
- 269 PDF objects out of 1000 (max. 8388607)
- 207 compressed objects within 3 object streams
+ 275 PDF objects out of 1000 (max. 8388607)
+ 211 compressed objects within 3 object streams
  46 named destinations out of 1000 (max. 500000)
  103 words of extra memory for PDF output out of 10000 (max. 10000000)
 
