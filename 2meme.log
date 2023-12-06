@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.5)  4 DEC 2023 13:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.5)  5 DEC 2023 16:07
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -795,6 +795,9 @@ File: lstlang3.sty 2023/02/27 1.9 listings language file
 
 LaTeX Warning: Label `alg:cap' multiply defined.
 
+
+LaTeX Warning: Label `alg:cap' multiply defined.
+
 )
 \openout1 = `2meme.aux'.
 
@@ -864,267 +867,115 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \openout5 = `2meme.toc'.
 
 
-[2] [3] [4]
+[2]
+Overfull \hbox (35.23126pt too wide) in paragraph at lines 111--111
+[][][]\OT1/cmr/m/n/8 https://github.com/reality-foundation/reality/blob/enable[
+]model/simulation[]data/surface[]plot.py| 
+ []
 
-LaTeX Warning: Command \textellipsis invalid in math mode on input line 146.
-
-
-LaTeX Warning: Command \textellipsis invalid in math mode on input line 146.
-
-./2meme.tex:146: Missing $ inserted.
-<inserted text> 
-                $
-l.146 ...nd.edu/assets/275279/leblanc_thesis.pdf'}
-                                                   for joint entropy	
-? 
-./2meme.tex:146: Missing $ inserted.
-<inserted text> 
-                $
-l.146 ...nd.edu/assets/275279/leblanc_thesis.pdf'}
-                                                   for joint entropy	
-? 
-[5] [6]
+[3] [4]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 167.
+put line 134.
+ [5]
 
-./2meme.tex:174: Use of \pgffor@@vars@end doesn't match its definition.
-l.174 ...oreach n \exist n.mempool | n.mempool.siz
-                                                  e = s \in \mathbb{N} \& n....
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 178.
 
-? 
-./2meme.tex:174: Missing \endgroup inserted.
-<inserted text> 
-                \endgroup 
-l.174 ....mempool.triggersize = t \in \mathbb{N} $
-                                                  $
-? 
-./2meme.tex:182: Undefined control sequence.
-l.182 \ElseIf
-             {$h \bmod i-1 == 0 \& n.mempool.size > n.mempool.t$}
-? 
-./2meme.tex:189: Missing number, treated as zero.
-<to be read again> 
-                   \ALG@b@2@Else@0 
-l.189 \Else
-            {$n.mempool.size > n.mempool.t $}
-? 
 
-./2meme.tex:193: Package algorithmicx Error: Some blocks are not closed!!!.
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 178.
 
-See the algorithmicx package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.193 \end{algorithmic}
-                       
-? 
-./2meme.tex:201: Missing \endcsname inserted.
-<to be read again> 
-                   \ALG@currentblock@0 
-l.201 \State
-             $h \gets H$
-? 
-./2meme.tex:201: Extra \endcsname.
-\ALG@makebeginrepeat ...\ALG@thisblock \endcsname 
-                                                  \relax \def \ALG@thisblock...
-l.201 \State
-             $h \gets H$
-? 
-./2meme.tex:202: Missing \endcsname inserted.
-<to be read again> 
-                   \ALG@currentblock@0 
-l.202 \State
-             $n \gets N$ \Comment{these are nodes}
-? 
-./2meme.tex:202: Extra \endcsname.
-\ALG@makebeginrepeat ...\ALG@thisblock \endcsname 
-                                                  \relax \def \ALG@thisblock...
-l.202 \State
-             $n \gets N$ \Comment{these are nodes}
-? 
-./2meme.tex:203: Missing \endcsname inserted.
-<to be read again> 
-                   \ALG@currentblock@0 
-l.203 \State
-             $e = rand(bool) $
-? 
-./2meme.tex:203: Extra \endcsname.
-\ALG@makebeginrepeat ...\ALG@thisblock \endcsname 
-                                                  \relax \def \ALG@thisblock...
-l.203 \State
-             $e = rand(bool) $
-? 
-./2meme.tex:204: Missing \endcsname inserted.
-<to be read again> 
-                   \ALG@currentblock@0 
-l.204 \State
-             $\foreach n \exist n.mempool | n.mempool.size = s \in \mathbb{N...
-
-? 
-./2meme.tex:204: Extra \endcsname.
-\ALG@makebeginrepeat ...\ALG@thisblock \endcsname 
-                                                  \relax \def \ALG@thisblock...
-l.204 \State
-             $\foreach n \exist n.mempool | n.mempool.size = s \in \mathbb{N...
-
-? 
-./2meme.tex:204: Use of \pgffor@@vars@end doesn't match its definition.
-l.204 ...oreach n \exist n.mempool | n.mempool.siz
-                                                  e = s \in \mathbb{N} \& n....
-
-? 
-./2meme.tex:204: Missing \endgroup inserted.
-<inserted text> 
-                \endgroup 
-l.204 ....mempool.triggersize = t \in \mathbb{N} $
-                                                  
-? 
-./2meme.tex:205: Missing \endcsname inserted.
-<to be read again> 
-                   \ALG@currentblock@0 
-l.205 \While
-            {$true$}
-? 
-./2meme.tex:205: Extra \endcsname.
-\ALG@makebeginrepeat ...\ALG@thisblock \endcsname 
-                                                  \relax \def \ALG@thisblock...
-l.205 \While
-            {$true$}
-? 
-
-./2meme.tex:217: Package algorithmicx Error: Some blocks are not closed!!!.
-
-See the algorithmicx package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.217 \end{algorithmic}
-                       
-? 
-
-Overfull \hbox (2.05286pt too wide) in paragraph at lines 221--221
+[6] [7] [8]
+Overfull \hbox (2.05286pt too wide) in paragraph at lines 266--266
 [][]\OT1/cmr/bx/n/14.4 Monte Carlo sim-u-la-tion: es-ti-ma-tion via self avoid-
 
  []
 
-[7] [8]
-./2meme.tex:242: Missing $ inserted.
-<inserted text> 
-                $
-l.242 ...probability/api_docs/python/tfp/math/ode}
-                                                  or pytorch\footnote{https:...
 
-? 
-./2meme.tex:242: Missing $ inserted.
-<inserted text> 
-                $
-l.242 ...probability/api_docs/python/tfp/math/ode}
-                                                  or pytorch\footnote{https:...
+Overfull \hbox (178.70781pt too wide) in paragraph at lines 269--269
+[][][]\OT1/cmr/m/n/8 https://github.com/reality-foundation/reality/tree/enable[
+]model/modules/sdk/src/main/scala/org/tessellation/sdk/infrastructure/trust| 
+ []
 
-? 
 [9] [10]
-<./images//f-score-surface-plot.png, id=139, 1168.365pt x 787.94376pt>
+Overfull \hbox (248.44771pt too wide) in paragraph at lines 287--287
+[][][]\OT1/cmr/m/n/8 https://github.com/reality-foundation/reality/blob/enable[
+]model/modules/sdk/src/main/scala/org/tessellation/sdk/infrastructure/trust/Tru
+stModel.scala| 
+ []
+
+[11] [12]
+<./images//f-score-surface-plot.png, id=152, 1168.365pt x 787.94376pt>
 File: ./images//f-score-surface-plot.png Graphic file (type png)
 <use ./images//f-score-surface-plot.png>
 Package pdftex.def Info: ./images//f-score-surface-plot.png  used on input line
- 278.
+ 324.
 (pdftex.def)             Requested size: 345.00342pt x 345.00107pt.
 
-Overfull \hbox (15.00342pt too wide) in paragraph at lines 278--280
+Overfull \hbox (15.00342pt too wide) in paragraph at lines 324--326
 [][]
  []
 
-[11]
-<./images//attack-success-suface-plot.png, id=145, 964.60374pt x 904.37875pt>
+[13 <./images//f-score-surface-plot.png>]
+<./images//attack-success-suface-plot.png, id=160, 964.60374pt x 904.37875pt>
 File: ./images//attack-success-suface-plot.png Graphic file (type png)
 <use ./images//attack-success-suface-plot.png>
 Package pdftex.def Info: ./images//attack-success-suface-plot.png  used on inpu
-t line 282.
+t line 328.
 (pdftex.def)             Requested size: 344.99042pt x 344.99226pt.
 
-Overfull \hbox (14.99042pt too wide) in paragraph at lines 282--284
+Overfull \hbox (14.99042pt too wide) in paragraph at lines 328--330
 [][]
  []
 
-[12 <./images//f-score-surface-plot.png>]
-./2meme.tex:286: Missing $ inserted.
-<inserted text> 
-                $
-l.286 ...pdf_download&fr=RR-2&rr=8306a2ef2866cee9}
-                                                   who used jaccard similari...
 
-? 
-./2meme.tex:286: Misplaced alignment tab character &.
-<argument> .../S1877050912003936?ref=pdf_download&
-                                                  fr=RR-2&rr=8306a2ef2866cee9
-l.286 ...pdf_download&fr=RR-2&rr=8306a2ef2866cee9}
-                                                   who used jaccard similari...
-
-? 
-./2meme.tex:286: Misplaced alignment tab character &.
-<argument> ...0912003936?ref=pdf_download&fr=RR-2&
-                                                  rr=8306a2ef2866cee9
-l.286 ...pdf_download&fr=RR-2&rr=8306a2ef2866cee9}
-                                                   who used jaccard similari...
-
-? 
-./2meme.tex:286: Missing $ inserted.
-<inserted text> 
-                $
-l.286 ...pdf_download&fr=RR-2&rr=8306a2ef2866cee9}
-                                                   who used jaccard similari...
-
-? 
-
-Overfull \hbox (17.99927pt too wide) in paragraph at lines 286--286
+Overfull \hbox (38.5544pt too wide) in paragraph at lines 332--332
 [][][]\OT1/cmr/m/n/8 https://www.sciencedirect.com/science/article/pii/S1877050
-912003936?ref=pdf$[]\OML/cmm/m/it/8 ownloadfr \OT1/cmr/m/n/8 =
+912003936?ref=pdf[]download&fr=RR-
  []
 
-[13 <./images//attack-success-suface-plot.png>] [14] (./2meme.aux)
+[14 <./images//attack-success-suface-plot.png>] [15] (./2meme.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package rerunfilecheck Info: File `2meme.out' has not changed.
-(rerunfilecheck)             Checksum: 2FFA7077AC163E1887B27D247ADDA240;1712.
+
+Package rerunfilecheck Warning: File `2meme.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `2meme.out':
+(rerunfilecheck)             Before: BA76181C15097DE7DEB2738B883C9702;1707
+(rerunfilecheck)             After:  14F6C2E8DC51B4423230A297A11EA9A9;1702.
  ) 
 Here is how much of TeX's memory you used:
- 26009 strings out of 476025
- 489409 string characters out of 5790017
- 1865388 words of memory out of 5000000
- 45957 multiletter control sequences out of 15000+600000
- 521860 words of font info for 69 fonts, out of 8000000 for 9000
+ 26007 strings out of 476025
+ 489382 string characters out of 5790017
+ 1863388 words of memory out of 5000000
+ 45954 multiletter control sequences out of 15000+600000
+ 521346 words of font info for 67 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 98i,8n,103p,1565b,452s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 98i,8n,103p,1735b,452s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></
 usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></u
 sr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></us
 r/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/
-local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/lo
-cal/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/loca
-l/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/
-texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/te
-xlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texl
-ive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texliv
-e/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2
-023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2023
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf
--dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2023/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2023/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2023/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023/texmf-dist/font
-s/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2023/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2023/texmf-dist/fonts/
-type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2023/texmf-dist/fo
-nts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on 2meme.pdf (14 pages, 1258025 bytes).
+local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/lo
+cal/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/loca
+l/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/
+texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/te
+xlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texli
+ve/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/
+2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/202
+3/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2023/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2023/texmf-d
+ist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2023/tex
+mf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on 2meme.pdf (15 pages, 1201917 bytes).
 PDF statistics:
- 290 PDF objects out of 1000 (max. 8388607)
- 217 compressed objects within 3 object streams
- 43 named destinations out of 1000 (max. 500000)
+ 269 PDF objects out of 1000 (max. 8388607)
+ 207 compressed objects within 3 object streams
+ 46 named destinations out of 1000 (max. 500000)
  103 words of extra memory for PDF output out of 10000 (max. 10000000)
 
