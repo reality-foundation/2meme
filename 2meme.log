@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.5)  5 DEC 2023 16:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.5)  15 DEC 2023 18:08
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -903,50 +903,43 @@ Overfull \hbox (2.05286pt too wide) in paragraph at lines 275--275
 
  []
 
-
-Overfull \hbox (178.70781pt too wide) in paragraph at lines 278--278
-[][][]\OT1/cmr/m/n/8 https://github.com/reality-foundation/reality/tree/enable[
-]model/modules/sdk/src/main/scala/org/tessellation/sdk/infrastructure/trust| 
- []
-
-[9] [10]
-Overfull \hbox (248.44771pt too wide) in paragraph at lines 296--296
-[][][]\OT1/cmr/m/n/8 https://github.com/reality-foundation/reality/blob/enable[
-]model/modules/sdk/src/main/scala/org/tessellation/sdk/infrastructure/trust/Tru
-stModel.scala| 
- []
-
-[11] [12]
-<./images//f-score-surface-plot.png, id=153, 1168.365pt x 787.94376pt>
+[9] [10] [11] [12]
+<./images//f-score-surface-plot.png, id=153, 529.98pt x 414.54875pt>
 File: ./images//f-score-surface-plot.png Graphic file (type png)
 <use ./images//f-score-surface-plot.png>
 Package pdftex.def Info: ./images//f-score-surface-plot.png  used on input line
- 333.
-(pdftex.def)             Requested size: 345.00342pt x 345.00107pt.
+ 335.
+(pdftex.def)             Requested size: 345.00046pt x 345.01154pt.
 
-Overfull \hbox (15.00342pt too wide) in paragraph at lines 333--335
+Overfull \hbox (15.00046pt too wide) in paragraph at lines 335--337
 [][]
  []
 
-[13 <./images//f-score-surface-plot.png>]
-<./images//attack-success-suface-plot.png, id=161, 964.60374pt x 904.37875pt>
+[13]
+<./images//attack-success-suface-plot.png, id=160, 526.96875pt x 469.755pt>
 File: ./images//attack-success-suface-plot.png Graphic file (type png)
 <use ./images//attack-success-suface-plot.png>
 Package pdftex.def Info: ./images//attack-success-suface-plot.png  used on inpu
-t line 337.
-(pdftex.def)             Requested size: 344.99042pt x 344.99226pt.
+t line 339.
+(pdftex.def)             Requested size: 345.0183pt x 344.997pt.
 
-Overfull \hbox (14.99042pt too wide) in paragraph at lines 337--339
+Overfull \hbox (15.0183pt too wide) in paragraph at lines 339--341
 [][]
  []
 
-
-Overfull \hbox (38.5544pt too wide) in paragraph at lines 341--341
+[14 <./images//f-score-surface-plot.png>]
+Overfull \hbox (38.5544pt too wide) in paragraph at lines 343--343
 [][][]\OT1/cmr/m/n/8 https://www.sciencedirect.com/science/article/pii/S1877050
 912003936?ref=pdf[]download&fr=RR-
  []
 
-[14 <./images//attack-success-suface-plot.png>] [15] (./2meme.aux)
+[15 <./images//attack-success-suface-plot.png>]
+Overfull \hbox (8.00052pt too wide) in paragraph at lines 347--348
+[]\OT1/cmr/m/n/10 The cryp-to-graphic sig-na-tures de-scribed in the sys-tem ar
+-chi-tec-ture use ECDSA.
+ []
+
+[16] (./2meme.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
@@ -954,8 +947,8 @@ Package rerunfilecheck Info: File `2meme.out' has not changed.
 (rerunfilecheck)             Checksum: 14F6C2E8DC51B4423230A297A11EA9A9;1702.
  ) 
 Here is how much of TeX's memory you used:
- 26201 strings out of 476025
- 492188 string characters out of 5790017
+ 26203 strings out of 476025
+ 492207 string characters out of 5790017
  1863388 words of memory out of 5000000
  46142 multiletter control sequences out of 15000+600000
  521681 words of font info for 68 fonts, out of 8000000 for 9000
@@ -981,10 +974,10 @@ f-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf
 ist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2023/tex
 mf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2023
 /texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on 2meme.pdf (15 pages, 1204770 bytes).
+Output written on 2meme.pdf (16 pages, 719832 bytes).
 PDF statistics:
- 275 PDF objects out of 1000 (max. 8388607)
- 211 compressed objects within 3 object streams
- 46 named destinations out of 1000 (max. 500000)
+ 281 PDF objects out of 1000 (max. 8388607)
+ 216 compressed objects within 3 object streams
+ 48 named destinations out of 1000 (max. 500000)
  103 words of extra memory for PDF output out of 10000 (max. 10000000)
 
