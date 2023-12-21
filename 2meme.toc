@@ -9,6 +9,7 @@
 \contentsline {section}{Experimental results}{15}{section*.10}%
 \contentsline {section}{Sybil resistance}{18}{section*.11}%
 \contentsline {subsection}{Sybil attack}{19}{section*.12}%
-\contentsline {subsection}{Eclipse attack}{19}{section*.13}%
-\contentsline {section}{Further investigation}{20}{section*.14}%
-\contentsline {section}{Conclusion}{20}{section*.15}%
+\contentsline {subsection}{Lie and wait attack}{19}{section*.13}%
+\contentsline {subsection}{Eclipse attack}{20}{section*.14}%
+\contentsline {section}{Further investigation}{20}{section*.15}%
+\contentsline {section}{Conclusion}{21}{section*.16}%
