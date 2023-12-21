@@ -120,7 +120,7 @@ The following is a solution of a long standing goal in the crypto ecosystem: cre
 This works is in pre-print and as of now a first-draft. The pseudocode sections aren't exactly the syntax I wanted but the pseudocode library is getting the job done. Also, I'm still working on formatting the surface plots in the results section. They're actually rendered in 3d, so if you run the code yourself\footnote{https://github.com/reality-foundation/reality/blob/enable\_model/simulation\_data/surface\_plot.py} you can re-orient to get different views of the surfaces.
 
 \section{Introduction}
-For a distributed system to maintain consistency, it needs to optimize information gain and minimize discrepancies. One set of approaches rely on trust or reputation models to mitigate potentially conflicting updates from untrusted peers. There are many approaches to solving reputation problems in p2p networks. The most famous is Eigentrust, and there are many expansions upon the base framework, such as Honestpeer and Powertrust. Due to the curse of dimensionality, they all employ some type of random walk to explore the search space of transitive trust between nodes, calculating a probability distribution via Monte-Carlo integration to generate probabilistic trust scores of all peers. These expansions typically focus on finding new features or representations of trust, such as in Deepwalk or Node2vec, which create an embedding of social data to normalize the edge weights of the peer graph.
+For a distributed system to maintain consistency, it needs to optimize information gain and minimize discrepancies. One set of approaches rely on trust or reputation models to mitigate potentially conflicting updates from untrusted peers. There are many approaches to solving reputation problems in p2p networks. The most famous is Eigentrust, and there are many expansions upon the base framework, such as Honestpeer and Powertrust. Due to the curse of dimensionality, they all employ some type of random walk to explore the search space of transitive trust between nodes, calculating a probability distribution such as via Monte-Carlo integration to generate probabilistic trust scores of all peers. These expansions typically focus on finding new features or representations of trust, such as in Deepwalk or Node2vec, which create an embedding of social data to normalize the edge weights of the peer graph.
 
 This paper follows a similar approach using entropy or disorder across peer behavior and is specifically applied to a dag-based multi-layered consensus protocol. Whereas many approaches such as Eigentrust require a seed or whitelist of authority nodes to base trust upon, this is insufficient when requiring decentralization such as for distributed consensus networks like cryptocurrencies. 2MEME circumvents this by determining correctness without pre-trusted peers, allowing nodes to join and leave and preventing centralized control over consensus.
 
@@ -147,9 +147,9 @@ These blocks constitute a directed acyclic graph called the Data Dependency Grap
 \State $n.mempool \equiv \{ $Transactions$ \}$
 \State $n.mempool.size, n.mempool.triggersize \in \mathbb{N}$
 \State $n.mempool.size, n.mempool.triggersize \gets n$ 
-\State $received Owner Proposal(bool)$
-\State $recieved Facilitator Proposal(bool)$
-\State $isOwnerPeer(bool)$
+\State $received Owner Proposal(): bool$
+\State $recieved Facilitator Proposal(): bool$
+\State $isOwnerPeer(n): bool$
 \While{True}
 	\If{$n.mempool.size \geq n.mempool.t$}
 		 \State Create owner proposal
@@ -157,10 +157,10 @@ These blocks constitute a directed acyclic graph called the Data Dependency Grap
 		 \State Validate responses
 		 \State Form block and gossip to all L1 and L0 nodes
 		
-	\ElsIf{$received Owner Proposal(bool)$}
+	\ElsIf{$received Owner Proposal()$}
 			\State Sign and send proposal made from current node's mempool to other Facilitator peer
 		
-	\ElsIf{$received Facilitator Proposal(bool)$}
+	\ElsIf{$received Facilitator Proposal()$}
 		\If{$isOwnerPeer$}
 			\State Ensure both Facilitator proposals are equal
 			\State sign and send block (made of all 3 mempools) to other all L1 and L0 nodes
@@ -179,7 +179,61 @@ Data contained in the L0 peer's mempool, consisting of L1 blocks, is spread amon
 	
 Periodically, at an interval multiple of snapshot height called the 'height-diff' interval, the L0 nodes cycle between ‘active’ and ‘passive’ states. 'Active' nodes actively perform consensus, 'passive' nodes gather final snapshots and index into a database (block explorer). The total number of 'active' L0 nodes is equal to $\sqrt{\sum peers}$, thus the total complexity for ledger state convergence (known as finality time) is $O(\sqrt{\sum peers}^2) + O(log(n)= O(n) + O(log(n))$. Peers are cycled at each interval according to a deterministic locality sensitive hash function applied to the last snapshot hash and all the L0 peer addresses that have not been identified as Sybil; a node's probability of selection is also influenced by the amount of tokens in the address of the node, however the amount does not affect the outcome of consensus (which constitutes proof of stake). Rewards for each round are proportional to the cumulative sum of information gain reported by L0’s peers and low trust outliers are blacklisted temporarily.
 
-In both L0 and L1, a 'double spend' or submission of invalid data as valid, with the attempted result being the attribution of new tokens to some Address, the node Address's balance is reduced to 0 in a process known as 'slashing'. It is also worth noting that. as shown above, there is no fault tolerance due to latency, thus it's fault tolerance is asynchronous and achieves Asynchronous Byzantine Fault Tolerance.
+In both L0 and L1, a 'double spend' or submission of invalid data as valid, with the attempted result being the attribution of new tokens to some Address, the node Address's balance is reduced to 0 in a process known as 'slashing'. It is also worth noting that, as shown via recursive tip structure, there is no fault tolerance due to latency, thus it's fault tolerance is asynchronous and achieves Asynchronous Byzantine Fault Tolerance.
+
+\begin{algorithm}
+\caption{$L \Omega$}\label{alg:cap}
+\begin{algorithmic}
+\State $h, i \in \mathbb{N}$
+\State $H \ggg  i$
+\State $h \gets H$
+\State $n \gets N$ \Comment{these are $L\Omega$ nodes}
+\State $n.mempool \equiv \{ $Snapshots$ \}$
+\State $n.mempool.size, n.mempool.triggersize, n.peers.active, n.peers.passive \in \mathbb{N}$
+\State $n.mempool.size, n.mempool.triggersize, n.peers.active, n.peers.passive \gets n$ 
+\State $h.signatureChain \leq n.peers.active$ 
+\State $isActive(n): bool$
+\State $invalidSnapshot(h): bool$
+\State $notUnique(h): bool$
+
+\For{$h \gets H$}
+	\If{$invalidSnapshot(h)$}
+		\State Slash address value for all signatories on h
+		\State Remove invalid signatories from n.peers.active
+		\If{$n.peers.active - invalid signatories == 0$}
+			\State Recalculate active peers from previous snapshot and previous set of inactive peers
+			\State Gossip new active state to all subscribers (including L1 and client apps)
+		\EndIf
+		
+	\ElsIf{$notUnique(h)$}
+		\If{$h.signatureChain < n.peers.active $}
+			\State Initiate health check/removal on missing peer ids
+		\EndIf
+		\State Choose h with highest $\sum_n{score(n)}$
+
+	\ElsIf{$0 \equiv h \bmod{i} == 0$}
+    			\State Calculate new active peers
+			\If{$isActive(n)$}
+				\State Initiate active L0 process with other active peers
+			\EndIf
+	\ElsIf{$0 \equiv h \bmod{i-1} == 0$}
+    		\State Send 
+		
+	\ElsIf {$\not isActive(n) \& \not invalidSnapshot(h)$}
+	    		\State Gossip join requests, Snapshots
+			\State Submit data to Downloading nodes
+			\State Process ledger state requests
+		
+	\EndIf
+\EndFor
+\end{algorithmic}
+\end{algorithm}
+
+Finally, there is a meta-process running on all L0 nodes (both active and passive), which acts as a block explorer in addition to validating L0 snapshots and curating the list of all peers, namely the L$\Omega$. All active L0 peers need to sign the result of consensus (form a signature chain), which enforces convergence before sending to the larger $L\Omega$ network, but also creates a record of divergence (either malicious or not) and the nodes that diverged. If this happens, a health check is performed, essentially asking for the missing data; if it is not received, then the unresponsive peers are removed and consensus continues. In order to maintain a consistent peer list, new peer requests are gossiped across the active and passive nodes via $L\Omega$ and included in Snapshots.
+
+\subsection{Active Peer Selection}
+Active peer selection is performed by a deterministic locality sensitive hash function which operates on a list of peers and chooses equal amounts randomly between two partitions of active nodes; one partition $A$ making up a minimum of $50\%$ of all staked tokens, and the second partition $B$ containing all remaining nodes. It's clear to see that as the network grows it implies that $B \ggg A$ due to token scarcity. While this does provide an advantage for early users/token holders, it mitigates the security risk inherent in horizontally scalable permissionless networks (which get faster as the network grows) while still providing ample possibility for new users (with lower stake) to participate. 
+
 
 \section{Minimizing the Entropy Rate}
 Information gain can be formulated as the reduction of entropy or disorder in a dynamical system and depending on the characteristics of the system, it is calculated in one of many ways. For the purposes of 2MEME, which is formulated for application to consensus networks, it is calculated as a stochastic process.
@@ -200,7 +254,7 @@ F = \sum_N \lambda_N \ket{N_n} \bra{N_n}
 
 where $\lambda$ is a normalization function that maps the sum to between -1 and 1.
 
-\section {Permissionless vs Permissioned approaches}
+\section {L0 consensus: Permissionless vs Permissioned approaches}
 Two algorithms for gathering entropy data are presented below. The key algorithmic difference is the rate and logic for making proposals. 
 
 The first enforces a service level agreement requiring each peer to train its model at the same rate, achieving greater determinism and enabling a token reward model for an open network and preventing nodes' ability to forge scores to manipulate the selection algorithm; by first committing an encrypted hash of their scores to the ledger, then sending the unencrypted scores so peers can calculate the Majority Snapshot. In the batch model, at every snapshot height-diff interval, each peer proposes a new predicted trust vector (scores) within their proposals. They are then used to weight peer proposals for the Majority Snapshot calculation.
@@ -256,7 +310,7 @@ The second, online algorithm, reduces the in-memory cost of running each peer’
 \State $n.mempool \equiv \{ $Blocks$ \}$
 \State $n.mempool.size, n.mempool.triggersize \in \mathbb{N}$
 \State  $n.mempool.size, n.mempool.triggersize \gets n$ 
-\State $e = rand(bool) $ \Comment{This is a timed based trigger}
+\State $e = rand(): bool $ \Comment{This is a timed based trigger}
 \While{True}
 	\If{$n.mempool.size \geq n.mempool.t \&  e == True$}
 		 \State $state space = entropy(N)$ \Comment{Entropy rate relative to GCS}
@@ -303,21 +357,21 @@ First a new vector consisting of the successive diffs, normalized between 0 and 
 d_i^h \oplus d_i^h
 \end{equation}
 
-calculate the principal components (eigenvectors sorted by highest eigenvalue), $\lambda_1, \lambda_2 ,\lambda_3$ as well the 'max plane' $p_i$, similar to the 'top hat' in signal/fourier analysis which is an index range in $d_i^h$ with flat values (not perfectly flat, all diffs are within a threshold of the mean $\mu$), the 'right bias' $b_r$ and 'left bias' $b_l$ which are the ration of total sum of values to the left of $p_i$ divided by total scores and  total sum of values to the right of $b$ divided by total scores respectively. Finally consider 'population diffs' 
+calculate the principal components (eigenvectors sorted by highest eigenvalue), $\lambda_1, \lambda_2 ,\lambda_3$ as well the 'max plane' $p_i$, similar to the 'top hat' in signal/fourier analysis which is an index range in $d_i^h$ with flat values (not perfectly flat, all diffs are within a threshold of the mean $\mu$ or a minimum of 0.1), the 'right bias' $b_r$ and 'left bias' $b_l$ which are the ration of total sum of values to the left of $p_i$ divided by total scores and  total sum of values to the right of $b$ divided by total scores respectively. Finally consider 'population diffs' 
 
 \begin{equation}
 \lambda_{pop} = 1-(\lambda_{i-left}/\lambda_{i-right})
 \end{equation}
 where $1-(\lambda_{i-left}/\lambda_{i-right})$  are the population or number of nodes contained within biases calculated from each of the principal eigenvalues.
 
-Now, there are five scenarios to determine non-sybil nodes: first if the max plane maxes up over $20\%$ of the distribution and either biases are less than $60\%$ of the distribution, return the biases as non-sybil nodes. Second, if either the absolute value of the ratio of mean to population variance is less than $1x10^{-17}$ or the difference between the absolute value of the first principal component and the  absolute value of the second principal component is greater than the population standard deviation by $30\%$, return the entire set of $P_i$. Third, if the difference between the principal and second principal eigenvector is greater than the population standard deviation by $20\%$ or the minimum population diff (of all 3) is the population diff of the maximum principal component, then if the difference between the absolute values of the population biases of the principal eigenvalue $|\lambda_{left}| - |\lambda_{right}|$ is greater than the population standard deviation, return the right bias of the max principal component; if only the first condition is true, return the left bias of the max principal component. Next he same logic is then applied for the second and third principal components. 
+Now, there are five scenarios to determine non-sybil nodes: first if the max plane makes up over $20\%$ of the distribution and either biases are less than $90\%$ of the distribution, return the biases as non-sybil nodes. Second, if either the absolute value of the ratio of mean to population variance is less than $1x10^{-17}$ or the difference between the absolute value of the first principal component and the  absolute value of the second principal component is greater than the population standard deviation by $30\%$, return the entire set of $P_i$. Third, if the difference between the principal and second principal eigenvector is greater than the population standard deviation by $20\%$ or the minimum population diff (of all 3) is the population diff of the maximum principal component, then if the difference between the absolute values of the population biases of the principal eigenvalue $|\lambda_{left}| - |\lambda_{right}|$ is greater than the population standard deviation, return the right bias of the max principal component; if only the first condition is true, return the left bias of the max principal component. Next he same logic is then applied for the second and third principal components. 
 
 Finally, if the total non-sybil nodes to be returned are less than $10\%$ of the population ($90\%$ identified as sybil), return the entire set of nodes.
 
 \section{Experimental results}
-The following results were generated from a simulation involving 100 node instances. Several simulations were run for various types of attacks, which will be outlined below, and with varying percentages of sybil nodes all acting in unison from 0\% to 100\% in 20 percent intervals. Each type of attack can be reduced down to sybil nodes reporting scores of themselves or non-sybil nodes according to a distribution i,e low scores for non-sybil or high scores for sybil nodes. In the following visualizations, each attack type occurs on the y axis, the sybil percentage is given by the x axis and the z axis is the performance, either F-score of the classifier or a gain in selection rate.
+The following results were generated from a simulation involving 100 node instances. Several simulations were run for various types of attacks, which will be outlined below, and with varying percentages of sybil nodes all acting in unison from $0\%$ to $100\%$ in 20 percent intervals. Each type of attack can be reduced down to sybil nodes reporting scores of themselves or non-sybil nodes according to a distribution i,e low scores for non-sybil or high scores for sybil nodes. In the following visualizations, each attack type occurs on the y axis, the sybil percentage is given by the x axis and the z axis is the performance, either F-score of the classifier or a gain in selection rate.
 
-F-score, specifically F1-score was chosen as that performance metric because it's application to classifiers, specifically binary classifiers, is widely accepted. The F-score is the geometric mean of precision and recall, which means that it measures not just the ability of the classifier to filter out sybil nodes, but also to not remove non-sybil nodes. The choice of using F1 vs F2 score (which increases weight on the removal of sybil nodes) came from the desire to optimize for fairness as opposed to removal of sybil nodes; the model was tuned to ensure as many non-sybil nodes as possible were selected at the cost of allowing some sybil nodes to be selected at lower sybil percentages (under 50\%). This could be tuned to be more ruthless, but as demonstrated by the surface plot of F-scores, it does optimize for selection of non-sybil nodes at all levels.
+F-score, specifically F1-score was chosen as that performance metric because it's application to classifiers, specifically binary classifiers, is widely accepted. The F-score is the geometric mean of precision and recall, which means that it measures not just the ability of the classifier to filter out sybil nodes, but also to not remove non-sybil nodes. The choice of using F1 in the first plot came from the desire to show fairness as opposed to just the removal of sybil nodes (i.e. include false negatives). The second performance metric chosen was the ratio of false positives vs true positives, which is an accuracy metric showing the percentage of sybil nodes in the output of the classifier; at most an average of $3.5\%$ of the sybil group were not removed. 
 
 Note that many different scenarios are tested within unit tests and the simulation framework, notably analysis of sybil score cliques which submitted scores according to non-uniform distributions (i.e. linear), however the model was equally as good at identifying them as for uniform scores (1.0, -1.0, 0.5 etc. except for 0.0), but the test data is of different dimensionality and the code will need to be refactored before expanding the visualization. It's also worth noting the as the clique size increases to the size of the total set of nodes, we see performance mirroring that of the perfect non-sybil case, which is expected. Also sybil nodes reporting forged scores for non-sybil nodes was equally identified as self-reports.
 
@@ -331,18 +385,37 @@ symmetricNegOne: all sybil nodes give each other the min value in their proposal
 
 symmetricZeroSybil: all sybil nodes choose 0.0 as their proposal for each other.
 
+symetricLinearDistro: all sybil nodes propose increasing scores for each other in a linear distribution.
+
 
 \includegraphics[width=\textwidth, height=\textwidth]{f-score-surface-plot}
-Here we have a surface plot of F-score according to attack and sybil threshold. As we can see, the most effective attack is for sybil nodes to self report scores of 0.0, yielding a minimum F-score of 0.74-0.75 . This is still a solid score for any classifier and compared to existing consensus models (i.e. Bitcoin) which has an F-score of 0 for sybil percentages above 50 percent (due to the fact that one outcome of a 51\% attack is removal of non-sybil nodes), is remarkably successful and provides a huge comparative advantage.
+Here we have a surface plot of F-score according to attack and sybil threshold. As we can see, the most effective attack is for sybil nodes to self report scores of 0.0, yielding a minimum F-score of 0.73, the reduction here coming from false negatives. This is still a solid score for any classifier and compared to existing consensus models (i.e. Bitcoin) which has an F-score of 0 for sybil percentages above 50 percent (due to the fact that one outcome of a $51\%$ attack is removal of non-sybil nodes), is remarkably successful and provides a huge comparative advantage.
+
+\includegraphics[width=\textwidth, height=\textwidth]{false-pos-vs-true-pos}
+Here we have a plot of false positives / true positives. As mentioned above, F-scores drop primarily due to false negatives. However for our model which is most focused on removing sybil nodes, we can see that very few are not removed; specifically the small bump in symmetricZeroSybil has a maximum of 0.035, meaning only $3.5\%$ of nodes selected are from the sybil group. The spike at the end is the $100\%$ sybil case, which is where the model breaks down (note the actual was 1/0, so a value of 1.0 was imputed.)
 
 
 \includegraphics[width=\textwidth, height=\textwidth]{attack-success-suface-plot}
-Here we have a plot of the difference between nodes cheating and not cheating. The vertical axis is the percent increase in sybil nodes (forging scores) that are selected for the next round of consensus vs if they actually just submitted scores based upon their true entropy rate (not cheating). The ledge on the top left represents the perfect non-sybil case (0\%) and the top right shows the $100\%$ sybil case; both of these shows $100\%$ of nodes selected for next round (as expected). Most importantly, the flat plane shows that the only sybil nodes selected would have been selected anyway, based upon their immutable entropy rate; this means that the classifier removes gains from cheating.
+Here we have a plot of the difference between nodes cheating and not cheating. The vertical axis is the percent increase in sybil nodes (forging scores) that are selected for the next round of consensus vs if they actually just submitted scores based upon their true entropy rate (not cheating). The ledge on the top left represents the perfect non-sybil case ($0\%$) and the top right shows the $100\%$ sybil case; both of these shows $100\%$ of nodes selected for next round (as expected). Most importantly, the flat plane shows that the only sybil nodes selected would have been selected anyway, based upon their immutable entropy rate; this means that the classifier removes gains from cheating.
+
+\section{Sybil resistance}
+Open networks pose inherent security risks deriving from Sybil attacks; where a group of individuals attempt to forge network or ledger state. The attack surface grows as the cost for participation, either through hash power or stake, is reduced; essentially reducing the cost of a sybil attack by minimizing the cost to run sybil nodes. This has the transitive effect of also reducing the efficacy of horizontal scaling techniques, which increase speed as a function of the number of nodes. 2MEME mitigates these attacks in such a way that promotes participation (low fees and high transactions per second), both as a miner and a user. 
+
+\subsection{Sybil attack}
+As shown in the false positive vs true positive plot, the classifier is able to remove the vast majority of sybil nodes (at most a $3.5\%$ sybil rate) and only fails with close to $100\%$ sybil rate. That being said, given that the size of the active peers is much less than the passive, it would be feasible, albeit of a low probability, that entire committees of active nodes could be sybil. However, our approach is still able to increase the cost required for a $100\%$ successful sybil attack beyond the typical $51\%$. 
+
+Active L0 nodes are chosen from two buckets: the smallest set of nodes who's stake adds up to a minimum of $50\%$ and the rest of the nodes. Because of this, the cost to achieve a sybil attack with $100\%$ guarantee (i.e. all active nodes are sybil) would require over $50\%$ of the total stake in the network and over $50\%$ of the total hash power (number of nodes); most permissionless networks require only one of these to be over $50\%$ to fail whereas this system requires both.
+
+Consider the case where $10\%$ of all L0 nodes contain over $50\%$ of staked tokens and the other $90\%$ makes up less than $50\%$, that would mean a guaranteed attack requires over $50\%$ of staked tokens and up to $100\%$ of the hash power. This is considerably more costly than pure POW or POS which fail above $50\%$ controlling hash power or stake, respectively.
+
+\subsection{Eclipse attack}
+As shown in the $L\Omega$ definition, the result of a $51\%$ attack is a network partition where the offending nodes would only have an invalid chain state. This is essentially how one would perform an Eclipse attack, where offending nodes send incorrect peer data or chain data to a newly joining node. In this case, honest nodes would not be able to join the invalid partition (validation of the download step from a sybil node would not pass) and honest subscribers such as client utilities or L2 applications would be able to identify a sybil partition via invalid published snapshots. The end result of a wider $51\%$ attack would be an increase in latency (as for an ordinary network partition) as opposed to an invalid chain state.
+
 
 \section{Further investigation}
 	Modifications to the self-avoiding walk implementation could yield positive effects. As in many Monte Carlo integrations, the direction chosen at each step could be chosen according to a distance metric as opposed to randomly. Albeit, at the computational cost of increasing the dimensionality of the trust graph’s edges as well as in-memory expense of the metric calculation. Notably, this approach was employed by N. Koroviako\footnote{https://www.sciencedirect.com/science/article/pii/S1877050912003936?ref=pdf\_download\&fr=RR-2\&rr=8306a2ef2866cee9} who used Jaccard similarity to define trust out of relationships between review texts; as 2MEME's approach focuses on information gain, it would follow to select the next path at each step based on minimizing entropy rate of second order proposals (each edge would contain raw proposals, and choose the next node that has the minimal entropy rate compared to the current’s proposals.)
 	
-	As our SAW has non-linear (fractal) dimensionality\footnote{http://www.math.uchicago.edu/~lawler/miami1.pdf}, another possible improvement could come from using Hausdorff clustering\footnote{https://arxiv.org/pdf/0801.0748.pdf} to identify embedded hierarchies; this could have applications in further anomaly detection providing higher dimensions of entropy, which would be useful for improving the classifier with a differential equation solver or perhaps a graph embedding/deep learning approach. Note that the node influence metric calculated by the SAW is not strictly defined (it does not strictly obey the triangle equality, thus it's a measure not a metric) so it is actually compatible for the Hausdorff measure. 
+	As our SAW has non-linear (fractal) dimensionality\footnote{http://www.math.uchicago.edu/~lawler/miami1.pdf}, another possible improvement could come from using Hausdorff clustering\footnote{https://arxiv.org/pdf/0801.0748.pdf} to identify embedded hierarchies (perfom classification in terms of the surface of clusters); this could have applications in further anomaly detection providing higher dimensions of entropy, which would be useful for improving the classifier with a differential equation solver or perhaps a graph embedding/deep learning approach. Note that the node influence metric calculated by the SAW is not strictly defined (it does not strictly obey the triangle equality, thus it's a measure not a metric) so it is actually compatible for the Hausdorff measure. 
 	
 	The cryptographic signatures described in the system architecture use ECDSA. However, with the dawn of quantum computers and the fact that elliptic curve cryptography is vulnerable Shor's algorithm\footnote{https://arxiv.org/pdf/1804.00200.pdf} new 'post-quantum' cryptography (PQC) has been introduced which would allow 2MEME to remain effective in a post-quantum world. Fortunately, due to the structure of the key utilities in our codebase, we can easily swap out ECDSA for these newer PQC implementations. 
 

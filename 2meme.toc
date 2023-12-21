@@ -1,10 +1,14 @@
 \contentsline {section}{Forward}{2}{section*.2}%
 \contentsline {section}{Introduction}{3}{section*.3}%
 \contentsline {section}{System Architecture}{4}{section*.4}%
-\contentsline {section}{Minimizing the Entropy Rate}{6}{section*.5}%
-\contentsline {section}{Permissionless vs Permissioned approaches}{8}{section*.6}%
-\contentsline {section}{Monte Carlo simulation: estimation via self avoiding random walk}{9}{section*.7}%
-\contentsline {section}{Classification logic}{11}{section*.8}%
-\contentsline {section}{Experimental results}{12}{section*.9}%
-\contentsline {section}{Further investigation}{15}{section*.10}%
-\contentsline {section}{Conclusion}{16}{section*.11}%
+\contentsline {subsection}{Active Peer Selection}{8}{section*.5}%
+\contentsline {section}{Minimizing the Entropy Rate}{8}{section*.6}%
+\contentsline {section}{L0 consensus: Permissionless vs Permissioned approaches}{9}{section*.7}%
+\contentsline {section}{Monte Carlo simulation: estimation via self avoiding random walk}{12}{section*.8}%
+\contentsline {section}{Classification logic}{13}{section*.9}%
+\contentsline {section}{Experimental results}{15}{section*.10}%
+\contentsline {section}{Sybil resistance}{18}{section*.11}%
+\contentsline {subsection}{Sybil attack}{19}{section*.12}%
+\contentsline {subsection}{Eclipse attack}{19}{section*.13}%
+\contentsline {section}{Further investigation}{20}{section*.14}%
+\contentsline {section}{Conclusion}{20}{section*.15}%
