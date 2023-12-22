@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.5)  21 DEC 2023 18:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.5)  22 DEC 2023 10:54
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -891,76 +891,67 @@ Overfull \hbox (35.23126pt too wide) in paragraph at lines 120--120
  []
 
 [3] [4]
+<./images//L1-hylo.png, id=118, 252.945pt x 276.03125pt>
+File: ./images//L1-hylo.png Graphic file (type png)
+<use ./images//L1-hylo.png>
+Package pdftex.def Info: ./images//L1-hylo.png  used on input line 142.
+(pdftex.def)             Requested size: 172.50208pt x 172.50645pt.
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 143.
- [5]
-Underfull \hbox (badness 2326) in paragraph at lines 193--194
+put line 149.
+ [5 <./images//L1-hylo.png>] [6]
+Underfull \hbox (badness 2326) in paragraph at lines 199--200
 []$\OML/cmm/m/it/10 n:mempool:size; n:mempool:triggersize; n:peers:active; n:pe
 ers:passive \OMS/cmsy/m/n/10  
  []
 
-[6] [7]
+[7] [8]
 
-LaTeX Warning: Command \textellipsis invalid in math mode on input line 241.
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 247.
 
 
-LaTeX Warning: Command \textellipsis invalid in math mode on input line 241.
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 247.
 
-[8] [9]
-Overfull \hbox (2.05286pt too wide) in paragraph at lines 329--329
+[9] [10] [11]
+Overfull \hbox (2.05286pt too wide) in paragraph at lines 335--335
 [][]\OT1/cmr/bx/n/14.4 Monte Carlo sim-u-la-tion: es-ti-ma-tion via self avoid-
 
  []
 
-[10] [11] [12] [13] [14] [15]
-<./images//f-score-surface-plot.png, id=192, 504.88625pt x 455.7025pt>
+[12] [13] [14] [15]
+<./images//f-score-surface-plot.png, id=196, 504.88625pt x 455.7025pt>
 File: ./images//f-score-surface-plot.png Graphic file (type png)
 <use ./images//f-score-surface-plot.png>
 Package pdftex.def Info: ./images//f-score-surface-plot.png  used on input line
- 391.
+ 400.
 (pdftex.def)             Requested size: 345.00525pt x 345.00937pt.
-
-Overfull \hbox (15.00525pt too wide) in paragraph at lines 391--393
-[][]
- []
-
-<./images//false-pos-vs-true-pos.png, id=194, 542.025pt x 463.7325pt>
+<./images//false-pos-vs-true-pos.png, id=197, 542.025pt x 463.7325pt>
 File: ./images//false-pos-vs-true-pos.png Graphic file (type png)
 <use ./images//false-pos-vs-true-pos.png>
 Package pdftex.def Info: ./images//false-pos-vs-true-pos.png  used on input lin
-e 394.
+e 409.
 (pdftex.def)             Requested size: 345.00911pt x 345.0035pt.
-
-Overfull \hbox (15.00911pt too wide) in paragraph at lines 394--396
-[][]
- []
-
-[16 <./images//f-score-surface-plot.png>]
-<./images//attack-success-suface-plot.png, id=200, 526.96875pt x 469.755pt>
+ [16] [17 <./images//f-score-surface-plot.png>] [18 <./images//false-pos-vs-tru
+e-pos.png>]
+<./images//attack-success-suface-plot.png, id=214, 526.96875pt x 469.755pt>
 File: ./images//attack-success-suface-plot.png Graphic file (type png)
 <use ./images//attack-success-suface-plot.png>
 Package pdftex.def Info: ./images//attack-success-suface-plot.png  used on inpu
-t line 398.
+t line 419.
 (pdftex.def)             Requested size: 345.0183pt x 344.997pt.
-
-Overfull \hbox (15.0183pt too wide) in paragraph at lines 398--400
-[][]
- []
-
-[17 <./images//false-pos-vs-true-pos.png>] [18 <./images//attack-success-suface
--plot.png>] [19]
-Overfull \hbox (38.5544pt too wide) in paragraph at lines 421--421
+ [19 <./images//attack-success-suface-plot.png>]
+[20]
+Overfull \hbox (38.5544pt too wide) in paragraph at lines 445--445
 [][][]\OT1/cmr/m/n/8 https://www.sciencedirect.com/science/article/pii/S1877050
 912003936?ref=pdf[]download&fr=RR-
  []
 
-[20]
-Overfull \hbox (8.00052pt too wide) in paragraph at lines 425--426
+[21]
+Overfull \hbox (8.00052pt too wide) in paragraph at lines 449--450
 []\OT1/cmr/m/n/10 The cryp-to-graphic sig-na-tures de-scribed in the sys-tem ar
 -chi-tec-ture use ECDSA.
  []
 
-[21] (./2meme.aux)
+[22] (./2meme.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
@@ -968,10 +959,10 @@ Package rerunfilecheck Info: File `2meme.out' has not changed.
 (rerunfilecheck)             Checksum: 56EC4DD287D006A2E362A5EB54AE3B09;2485.
  ) 
 Here is how much of TeX's memory you used:
- 26231 strings out of 476025
- 492786 string characters out of 5790017
- 1868388 words of memory out of 5000000
- 46159 multiletter control sequences out of 15000+600000
+ 26249 strings out of 476025
+ 493095 string characters out of 5790017
+ 1866388 words of memory out of 5000000
+ 46172 multiletter control sequences out of 15000+600000
  521988 words of font info for 69 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  98i,11n,103p,1735b,454s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -995,10 +986,10 @@ f-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf
 ist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2023/tex
 mf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2023
 /texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on 2meme.pdf (21 pages, 971262 bytes).
+Output written on 2meme.pdf (22 pages, 1061296 bytes).
 PDF statistics:
- 332 PDF objects out of 1000 (max. 8388607)
- 260 compressed objects within 3 object streams
- 59 named destinations out of 1000 (max. 500000)
- 148 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 343 PDF objects out of 1000 (max. 8388607)
+ 268 compressed objects within 3 object streams
+ 64 named destinations out of 1000 (max. 500000)
+ 153 words of extra memory for PDF output out of 10000 (max. 10000000)
 
