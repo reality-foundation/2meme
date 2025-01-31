@@ -1,0 +1,17 @@
+\contentsline {section}{Forward}{1}{section*.2}%
+\contentsline {section}{Introduction}{2}{section*.3}%
+\contentsline {section}{System Architecture}{3}{section*.4}%
+\contentsline {subsection}{Active Peer Selection}{8}{section*.5}%
+\contentsline {section}{Entropy Rate}{8}{section*.6}%
+\contentsline {subsection}{Maximization vs Minimization}{9}{section*.7}%
+\contentsline {section}{L0 consensus: Permissionless vs Permissioned approaches}{10}{section*.8}%
+\contentsline {section}{Monte Carlo simulation: estimation via self avoiding random walk}{12}{section*.9}%
+\contentsline {section}{Classification logic}{14}{section*.10}%
+\contentsline {section}{Experimental results}{15}{section*.11}%
+\contentsline {section}{Sybil resistance}{20}{section*.12}%
+\contentsline {subsection}{Sybil attack}{20}{section*.13}%
+\contentsline {subsection}{Lie and wait attack}{21}{section*.14}%
+\contentsline {subsection}{Eclipse attack}{21}{section*.15}%
+\contentsline {subsection}{Ghost Chain Attack}{21}{section*.16}%
+\contentsline {section}{Further investigation}{22}{section*.17}%
+\contentsline {section}{Conclusion}{23}{section*.18}%
