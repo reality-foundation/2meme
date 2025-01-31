@@ -13,6 +13,8 @@
 \usepackage{hyperref}
 \usepackage{ amssymb }
 \usepackage{musicography}
+\usepackage{pst-solides3d}
+
 %\usepackage[linesnumbered,ruled]{algorithm2e}
 \usepackage{algorithm}
 \usepackage{algpseudocode}
@@ -23,30 +25,15 @@
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{corollary}{Corollary}[theorem]
 \newtheorem{lemma}[theorem]{Lemma}
-
 % `tikz-cd` is necessary to draw commutative diagrams.
 \RequirePackage{tikz-cd}
-% `calc` is necessary to draw curved arrows.
-\usetikzlibrary{calc}
-% `pathmorphing` is necessary to draw squiggly arrows.
-\usetikzlibrary{decorations.pathmorphing}
+\usepackage{tikz-3dplot} 
 
 \definecolor{dkgreen}{rgb}{0,0.6,0}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
 \definecolor{mauve}{rgb}{0.58,0,0.82}
 
-\tikzset{curve/.style={settings={#1},to path={(\tikztostart)
-    .. controls ($(\tikztostart)!\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
-    and ($(\tikztostart)!1-\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
-    .. (\tikztotarget)\tikztonodes}},
-    settings/.code={\tikzset{quiver/.cd,#1}
-        \def\pv##1{\pgfkeysvalueof{/tikz/quiver/##1}}},
-    quiver/.cd,pos/.initial=0.35,height/.initial=0}
 
-% TikZ arrowhead/tail styles.
-\tikzset{tail reversed/.code={\pgfsetarrowsstart{tikzcd to}}}
-\tikzset{2tail/.code={\pgfsetarrowsstart{Implies[reversed]}}}
-\tikzset{2tail reversed/.code={\pgfsetarrowsstart{Implies}}}
 
 \lstset{frame=tb,
   language=Scala,
@@ -241,7 +228,7 @@ Finally, there is a meta-process running on all L0 nodes (both active and passiv
 Active peer selection is performed by a deterministic locality sensitive hash function which operates on a list of peers and chooses equal amounts randomly between two partitions of active nodes; one partition $A$ making up a minimum of $50\%$ of all staked tokens, and the second partition $B$ containing all remaining nodes. It's clear to see that as the network grows it implies that $B \ggg A$ due to token scarcity. While this does provide an advantage for early users/token holders, it mitigates the security risk inherent in horizontally scalable permissionless networks (which get faster as the network grows) while still providing ample possibility for new users (with lower stake) to participate. 
 
 
-\section{Minimizing the Entropy Rate}
+\section{Entropy Rate}
 Information gain can be formulated as the reduction of entropy or disorder in a dynamical system and depending on the characteristics of the system, it is calculated in one of many ways. For the purposes of 2MEME, which is formulated for application to consensus networks, it is calculated as a stochastic process.
 	A stochastic process is an indexed sequence of random variables that do not need to be independent or identically distributed. In a consensus network, each peer continuously proposes variable state data, converging on an accepted state according to the rules of the consensus algorithm. This state data, in our case called blocks, can be independent or dependent on each other; and the amount of blocks as well as the specific blocks proposed can fluctuate or differ completely. Each block has an indexed order, or in the case of the system architecture above, a poset topology; meaning that they are strictly ordered. Thus these distributed systems fulfill the requirements of a stochastic process and can be modeled as such. While it is possible to apply 2MEME to linear blockchain protocols, it was formulated specifically for use in the system architecture above, with three indices: height, width and depth. The following formulas are specific to this poset topology.
 	Consider a set of peers $N = (n_0 …n_i)$, acting as random variables which produce outputs $O = (o_{0,0,0} … o_{h,w,d})$, such that $h<w$ and $w>d$, the system has a strict order given by poset topology. These indices can be reduced to discrete indexes, such that each index, there is a binary value representing each node proposing a specific block or not. This is calculated using following formula\footnote{thm 2.4 'https://math.nd.edu/assets/275279/leblanc\_thesis.pdf'} for joint entropy	
@@ -259,6 +246,23 @@ F = \sum_N \lambda_N \ket{N_n} \bra{N_n}
 \end{equation}
 
 where $\lambda$ is a normalization function that maps the sum to between -1 and 1.
+
+\subsection{Maximization vs Minimization}
+While from the L0 perspective and optimal system is defined in terms of a minimal entropy rate, the converse is true for the L1 perspective. An optimal L1 maximizes the inforcmation added within blocks to the data dependency graph. From this perspective, information gain can be described in terms of a Lebesgue measure, which is a geometric realization of an information space; we can calculate it as the volume of a tetrahedron where the length of each side is equal to the entropy or disorder between two tips. 
+
+Calculation of this platonic solid is an computationally hard problem and equivalent to a proof of work step in POW blockchains, however the calculation of these polyhedra actually optimizes the data stored in the data dependency graph data structure, both enforcing a work step (preventing ddos and lie in wait type attacks) but in a useful way. Hence "Useful Proof of Work".
+
+\tdplotsetmaincoords{70}{100} 
+\begin{tikzpicture}[line join=round,tdplot_main_coords,declare function={a=5;}] 
+\begin{scope}[canvas is xy plane at z=0,transform shape]
+ \path foreach \X [count=\Y] in {A,B,C}
+ {(\Y*120:{a/(2*cos(30))}) coordinate(\X)};
+\end{scope}
+\path (0,0,{a*cos(30)}) coordinate (D);
+\draw foreach \X/\Y [remember=\X as \Z (initially D)] in {A/B,B/C,C/D,D/A}
+ {(\X) -- (\Z) -- (\Y)};
+\end{tikzpicture}
+
 
 \section {L0 consensus: Permissionless vs Permissioned approaches}
 Two algorithms for gathering entropy data are presented below. The key algorithmic difference is the rate and logic for making proposals. 
@@ -440,6 +444,8 @@ The closest one could come to this attack is performing well by producing minima
 \subsection{Eclipse attack}
 As shown in the $L\Omega$ definition, the result of a $51\%$ attack is a network partition where the offending nodes would only have an invalid chain state. This is essentially how one would perform an Eclipse attack, where offending nodes send incorrect peer data or chain data to a newly joining node. In this case, honest nodes would not be able to join the invalid partition (validation of the download step from a sybil node would not pass) and honest subscribers such as client utilities or L2 applications would be able to identify a sybil partition via invalid published snapshots. The end result of a wider $51\%$ attack would be an increase in latency (as for an ordinary network partition) as opposed to an invalid chain state.
 
+\subsection{Ghost Chain Attack}
+As in most Proof of Work protocols, like Bitcoin, the probability of an attacker generating an alternative chain which is longer than the accurate chain in an attempt to change one of its own transactions to take back money spent is isomorphic to the Gambler's Ruin problem\footnote{Sec 11, https://bitcoin.org/bitcoin.pdf}. For a probability of attack success less that 0.1\% with sybil attack probability ($1-$ percentage of sybil nodes needed to perform a sybil attack), number of parent blocks that need to be accepted is given by the poisson distribution\footnote{pg 7, https://bitcoin.org/bitcoin.pdf}. Given our sybil threshold caps neatly at 80 (2MEME can handle 80\% sybil nodes) we can achieve 99.9\% probability of thwarting this attack with $z=11$ or rather only selecting a snapshot in finality which has 11 accepted parents.
 
 \section{Further investigation}
 	Modifications to the self-avoiding walk implementation could yield positive effects. As in many Monte Carlo integrations, the direction chosen at each step could be chosen according to a distance metric as opposed to randomly. Albeit, at the computational cost of increasing the dimensionality of the trust graph’s edges as well as in-memory expense of the metric calculation. Notably, this approach was employed by N. Koroviako\footnote{https://www.sciencedirect.com/science/article/pii/S1877050912003936?ref=pdf\_download\&fr=RR-2\&rr=8306a2ef2866cee9} who used Jaccard similarity to define trust out of relationships between review texts; as 2MEME's approach focuses on information gain, it would follow to select the next path at each step based on minimizing entropy rate of second order proposals (each edge would contain raw proposals, and choose the next node that has the minimal entropy rate compared to the current’s proposals.)
