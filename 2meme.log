@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.5)  31 JAN 2025 13:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.5)  6 FEB 2025 17:36
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -929,7 +929,17 @@ File: lstlang2.sty 2023/02/27 1.9 listings language file
 (/usr/local/texlive/2023/texmf-dist/tex/latex/listings/lstlang3.sty
 File: lstlang3.sty 2023/02/27 1.9 listings language file
 )
-(./2meme.aux)
+(./2meme.aux
+
+LaTeX Warning: Label `alg:cap' multiply defined.
+
+
+LaTeX Warning: Label `alg:cap' multiply defined.
+
+
+LaTeX Warning: Label `alg:cap' multiply defined.
+
+)
 \openout1 = `2meme.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 89.
@@ -951,8 +961,7 @@ LaTeX Font Info:    ... okay on input line 89.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 89.
 LaTeX Font Info:    ... okay on input line 89.
 \c@lstlisting=\count370
-
-(/usr/local/texlive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+ (/usr/local/texlive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count371
 \scratchdimen=\dimen316
@@ -991,11 +1000,7 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 91.
 
 (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) (./2meme.toc)
-\tf@toc=\write5
-\openout5 = `2meme.toc'.
-
-
+) (./2meme.toc
 [1
 Non-PDF special ignored!
 <special> header=pstricks.pro
@@ -1022,76 +1027,75 @@ Non-PDF special ignored!
 <special> ps:0.8 setlinewidth 0 setgray
 Non-PDF special ignored!
 <special> ps:tx@Dict begin  gsave STV CP T /ps@rot 0 def grestore  end
-{/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/loc
-al/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
+{/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}])
+\tf@toc=\write5
+\openout5 = `2meme.toc'.
+
+
+[2{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
+}]
 Overfull \hbox (35.23126pt too wide) in paragraph at lines 107--107
 [][][]\OT1/cmr/m/n/8 https://github.com/reality-foundation/reality/blob/enable[
 ]model/simulation[]data/surface[]plot.py| 
  []
 
-[2] [3]
-<./images//L1-hylo.png, id=41, 252.945pt x 276.03125pt>
+[3] [4]
+<./images//L1-hylo.png, id=128, 252.945pt x 276.03125pt>
 File: ./images//L1-hylo.png Graphic file (type png)
 <use ./images//L1-hylo.png>
 Package pdftex.def Info: ./images//L1-hylo.png  used on input line 129.
 (pdftex.def)             Requested size: 172.50208pt x 172.50645pt.
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
 put line 136.
- [4 <./images//L1-hylo.png>] [5]
+ [5 <./images//L1-hylo.png>] [6]
 Underfull \hbox (badness 2326) in paragraph at lines 186--187
 []$\OML/cmm/m/it/10 n:mempool:size; n:mempool:triggersize; n:peers:active; n:pe
 ers:passive \OMS/cmsy/m/n/10  
  []
 
-[6] [7]
+[7] [8]
 
 LaTeX Warning: Command \textellipsis invalid in math mode on input line 234.
 
 
 LaTeX Warning: Command \textellipsis invalid in math mode on input line 234.
 
-[8] [9] [10] [11]
+[9] [10]
 Overfull \hbox (2.05286pt too wide) in paragraph at lines 339--339
 [][]\OT1/cmr/bx/n/14.4 Monte Carlo sim-u-la-tion: es-ti-ma-tion via self avoid-
 
  []
 
-[12] [13] [14] [15]
-<./images//f-score-surface-plot.png, id=130, 504.88625pt x 455.7025pt>
+[11] [12] [13] [14] [15] [16] [17]
+<./images//f-score-surface-plot.png, id=214, 504.88625pt x 455.7025pt>
 File: ./images//f-score-surface-plot.png Graphic file (type png)
 <use ./images//f-score-surface-plot.png>
 Package pdftex.def Info: ./images//f-score-surface-plot.png  used on input line
  404.
 (pdftex.def)             Requested size: 345.00525pt x 345.00937pt.
-<./images//false-pos-vs-true-pos.png, id=131, 542.025pt x 463.7325pt>
+<./images//false-pos-vs-true-pos.png, id=215, 542.025pt x 463.7325pt>
 File: ./images//false-pos-vs-true-pos.png Graphic file (type png)
 <use ./images//false-pos-vs-true-pos.png>
 Package pdftex.def Info: ./images//false-pos-vs-true-pos.png  used on input lin
 e 413.
 (pdftex.def)             Requested size: 345.00911pt x 345.0035pt.
-<./images//attack-success-suface-plot.png, id=132, 526.96875pt x 469.755pt>
+ [18 <./images//f-score-surface-plot.png>]
+[19 <./images//false-pos-vs-true-pos.png>]
+<./images//attack-success-suface-plot.png, id=229, 526.96875pt x 469.755pt>
 File: ./images//attack-success-suface-plot.png Graphic file (type png)
 <use ./images//attack-success-suface-plot.png>
 Package pdftex.def Info: ./images//attack-success-suface-plot.png  used on inpu
 t line 423.
 (pdftex.def)             Requested size: 345.0183pt x 344.997pt.
- [16] [17 <./images//f-score-surface-plot.png>] [18 <./images//false-pos-vs-tru
-e-pos.png>] [19 <./images//attack-success-suface-plot.png>]
-[20] [21]
+ [20 <./images//attack-success-suface-plot.png>] [21] [22]
 Overfull \hbox (38.5544pt too wide) in paragraph at lines 451--451
 [][][]\OT1/cmr/m/n/8 https://www.sciencedirect.com/science/article/pii/S1877050
 912003936?ref=pdf[]download&fr=RR-
  []
 
+[23] [24] (./2meme.aux)
 
-Overfull \hbox (8.00052pt too wide) in paragraph at lines 455--456
-[]\OT1/cmr/m/n/10 The cryp-to-graphic sig-na-tures de-scribed in the sys-tem ar
--chi-tec-ture use ECDSA.
- []
-
-[22] [23] (./2meme.aux)
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+LaTeX Warning: There were multiply-defined labels.
 
 
 Package rerunfilecheck Warning: File `2meme.out' has changed.
@@ -1099,14 +1103,14 @@ Package rerunfilecheck Warning: File `2meme.out' has changed.
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `2meme.out':
-(rerunfilecheck)             Before: D41D8CD98F00B204E9800998ECF8427E;0
-(rerunfilecheck)             After:  FA160EEAD1EA075C4A634961799E31BA;2759.
+(rerunfilecheck)             Before: FA160EEAD1EA075C4A634961799E31BA;2759
+(rerunfilecheck)             After:  F01EDD4A920F1803057B05900B204A40;3237.
  ) 
 Here is how much of TeX's memory you used:
- 29629 strings out of 476025
- 545840 string characters out of 5790017
- 1867388 words of memory out of 5000000
- 49492 multiletter control sequences out of 15000+600000
+ 29653 strings out of 476025
+ 546119 string characters out of 5790017
+ 1866388 words of memory out of 5000000
+ 49510 multiletter control sequences out of 15000+600000
  521988 words of font info for 69 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  93i,11n,94p,1735b,711s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1130,10 +1134,10 @@ f-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf
 ist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2023/tex
 mf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2023
 /texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on 2meme.pdf (23 pages, 1056323 bytes).
+Output written on 2meme.pdf (24 pages, 1066365 bytes).
 PDF statistics:
- 293 PDF objects out of 1000 (max. 8388607)
- 217 compressed objects within 3 object streams
- 69 named destinations out of 1000 (max. 500000)
- 33 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 375 PDF objects out of 1000 (max. 8388607)
+ 298 compressed objects within 3 object streams
+ 75 named destinations out of 1000 (max. 500000)
+ 169 words of extra memory for PDF output out of 10000 (max. 10000000)
 
