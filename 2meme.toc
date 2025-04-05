@@ -1,17 +1,19 @@
-\contentsline {section}{Forward}{1}{section*.2}%
-\contentsline {section}{Introduction}{2}{section*.3}%
-\contentsline {section}{System Architecture}{3}{section*.4}%
-\contentsline {subsection}{Active Peer Selection}{8}{section*.5}%
-\contentsline {section}{Entropy Rate}{8}{section*.6}%
-\contentsline {subsection}{Maximization vs Minimization}{9}{section*.7}%
-\contentsline {section}{L0 consensus: Permissionless vs Permissioned approaches}{10}{section*.8}%
-\contentsline {section}{Monte Carlo simulation: estimation via self avoiding random walk}{12}{section*.9}%
-\contentsline {section}{Classification logic}{14}{section*.10}%
-\contentsline {section}{Experimental results}{15}{section*.11}%
-\contentsline {section}{Sybil resistance}{20}{section*.12}%
-\contentsline {subsection}{Sybil attack}{20}{section*.13}%
-\contentsline {subsection}{Lie and wait attack}{21}{section*.14}%
-\contentsline {subsection}{Eclipse attack}{21}{section*.15}%
-\contentsline {subsection}{Ghost Chain Attack}{21}{section*.16}%
-\contentsline {section}{Further investigation}{22}{section*.17}%
-\contentsline {section}{Conclusion}{23}{section*.18}%
+\contentsline {section}{Forward}{2}{section*.2}%
+\contentsline {section}{Introduction}{3}{section*.3}%
+\contentsline {section}{System Architecture}{4}{section*.4}%
+\contentsline {subsection}{Active Peer Selection}{9}{section*.5}%
+\contentsline {subsection}{Entropy Rate}{9}{section*.6}%
+\contentsline {subsubsection}{Maximization vs Minimization}{10}{section*.7}%
+\contentsline {subsection}{L0 consensus: Permissionless vs Permissioned approaches}{11}{section*.8}%
+\contentsline {subsection}{Monte Carlo simulation: estimation via self avoiding random walk}{14}{section*.9}%
+\contentsline {subsection}{Classification logic}{15}{section*.10}%
+\contentsline {section}{Tokenomics}{16}{section*.11}%
+\contentsline {subsection}{Ideal Gas Fees}{17}{section*.12}%
+\contentsline {section}{Experimental results}{18}{section*.13}%
+\contentsline {subsection}{Sybil resistance}{23}{section*.14}%
+\contentsline {subsubsection}{Sybil attack}{23}{section*.15}%
+\contentsline {subsubsection}{Lie and wait attack}{24}{section*.16}%
+\contentsline {subsubsection}{Eclipse attack}{24}{section*.17}%
+\contentsline {subsubsection}{Ghost Chain Attack}{24}{section*.18}%
+\contentsline {section}{Further investigation}{25}{section*.19}%
+\contentsline {section}{Conclusion}{26}{section*.20}%

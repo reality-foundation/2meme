@@ -228,7 +228,7 @@ Finally, there is a meta-process running on all L0 nodes (both active and passiv
 Active peer selection is performed by a deterministic locality sensitive hash function which operates on a list of peers and chooses equal amounts randomly between two partitions of active nodes; one partition $A$ making up a minimum of $50\%$ of all staked tokens, and the second partition $B$ containing all remaining nodes. It's clear to see that as the network grows it implies that $B \ggg A$ due to token scarcity. While this does provide an advantage for early users/token holders, it mitigates the security risk inherent in horizontally scalable permissionless networks (which get faster as the network grows) while still providing ample possibility for new users (with lower stake) to participate. 
 
 
-\section{Entropy Rate}
+\subsection{Entropy Rate}
 Information gain can be formulated as the reduction of entropy or disorder in a dynamical system and depending on the characteristics of the system, it is calculated in one of many ways. For the purposes of 2MEME, which is formulated for application to consensus networks, it is calculated as a stochastic process.
 	A stochastic process is an indexed sequence of random variables that do not need to be independent or identically distributed. In a consensus network, each peer continuously proposes variable state data, converging on an accepted state according to the rules of the consensus algorithm. This state data, in our case called blocks, can be independent or dependent on each other; and the amount of blocks as well as the specific blocks proposed can fluctuate or differ completely. Each block has an indexed order, or in the case of the system architecture above, a poset topology; meaning that they are strictly ordered. Thus these distributed systems fulfill the requirements of a stochastic process and can be modeled as such. While it is possible to apply 2MEME to linear blockchain protocols, it was formulated specifically for use in the system architecture above, with three indices: height, width and depth. The following formulas are specific to this poset topology.
 	Consider a set of peers $N = (n_0 …n_i)$, acting as random variables which produce outputs $O = (o_{0,0,0} … o_{h,w,d})$, such that $h<w$ and $w>d$, the system has a strict order given by poset topology. These indices can be reduced to discrete indexes, such that each index, there is a binary value representing each node proposing a specific block or not. This is calculated using following formula\footnote{thm 2.4 'https://math.nd.edu/assets/275279/leblanc\_thesis.pdf'} for joint entropy	
@@ -247,7 +247,7 @@ F = \sum_N \lambda_N \ket{N_n} \bra{N_n}
 
 where $\lambda$ is a normalization function that maps the sum to between -1 and 1.
 
-\subsection{Maximization vs Minimization}
+\subsubsection{Maximization vs Minimization}
 While from the L0 perspective and optimal system is defined in terms of a minimal entropy rate, the converse is true for the L1 perspective. An optimal L1 maximizes the inforcmation added within blocks to the data dependency graph. From this perspective, information gain can be described in terms of a Lebesgue measure, which is a geometric realization of an information space; we can calculate it as the volume of a tetrahedron where the length of each side is equal to the entropy or disorder between two tips. 
 
 Calculation of this platonic solid is an computationally hard problem and equivalent to a proof of work step in POW blockchains, however the calculation of these polyhedra actually optimizes the data stored in the data dependency graph data structure, both enforcing a work step (preventing ddos and lie in wait type attacks) but in a useful way. Hence "Useful Proof of Work".
@@ -264,7 +264,7 @@ Calculation of this platonic solid is an computationally hard problem and equiva
 \end{tikzpicture}
 
 
-\section {L0 consensus: Permissionless vs Permissioned approaches}
+\subsection {L0 consensus: Permissionless vs Permissioned approaches}
 Two algorithms for gathering entropy data are presented below. The key algorithmic difference is the rate and logic for making proposals. 
 
 The first enforces a service level agreement requiring each peer to train its model at the same rate, achieving greater determinism and enabling a token reward model for an open network and preventing nodes' ability to forge scores to manipulate the selection algorithm; by first committing an encrypted hash of their scores to the ledger, then sending the unencrypted scores so peers can calculate the Majority Snapshot. In the batch model, at every snapshot height-diff interval, each peer proposes a new predicted trust vector (scores) within their proposals. They are then used to weight peer proposals for the Majority Snapshot calculation.
@@ -336,7 +336,7 @@ The second, online algorithm, reduces the in-memory cost of running each peer’
 \end{algorithmic}
 \end{algorithm}
 
-\section{Monte Carlo simulation: estimation via self avoiding random walk}
+\subsection{Monte Carlo simulation: estimation via self avoiding random walk}
 Next a self-avoiding walk is employed to perform community detection, the output of which can be used to calculate availability and node influence\footnote{https://www.sciencedirect.com/science/article/pii/S0378437118304242}. Note, to avoid confusion between a consensus network and graph, nodes are called servers below.
 
 The output of the entropy rate calculation is a graph, with a server’s peers corresponding to nodes and edges as the relative joint entropy between the server and its peers. The edges are a ‘view’ of the performance of each peer relative to itself. This matrix (namely $F = \sum_N \lambda_N \ket{N_n} \bra{N_n}$) is passed to the TrustManager, a background process that performs a self-avoiding random walk across the graph of nodes connected by relative joint entropy and outputs a vector containing a trust score for each node relative to the server hosting running the process (predicted trust). Pseudocode for this and the following methods are omitted due to length, but can be found in the Reality Protocol's codebase\footnote{https://github.com/reality-foundation/reality/tree/enable\_model/modules/sdk/src/\\main/scala/org/tessellation/sdk/infrastructure/trust}.
@@ -356,7 +356,7 @@ Given a source node $i$, suppose it is possible to reach $N_i(h)$ different node
 k_(h) = \exp (-\sum_j p^{h}_j log p^{h}_j )
 \end{equation}
 
-\section{Classification logic}
+\subsection{Classification logic}
 Now  that we have a manifold of node influence, we can look for signals between sybil and non-sybil nodes and build a classifier. Pseudocode for the classifier is omitted due to length, but can be found in the Reality Protocol's codebase\footnote{https://github.com/reality-foundation/reality/blob/enable\_model/modules/sdk/src/\\main/scala/org/tessellation/sdk/infrastructure/trust/TrustModel.scala}.
 
 The classifier defined as follows simply looks at the first three principal eigenvectors (those with the largest three eigenvalues), to identify sybil nodes. Its quite possible to improve upon the experimental results using a differential equation solver as provided in Tensorflow \footnote{https://www.tensorflow.org/probability/api\_docs/python/tfp/math/ode} or Pytorch\footnote{https://github.com/rtqichen/torchdiffeq}, which would be able at least incorporate higher order terms and improve distribution fit, if not catch hidden nonlinear signals. As you'll see, the classifier follows steps similar to those in analytically solving systems of differential equations.
@@ -377,6 +377,33 @@ where $1-(\lambda_{i-left}/\lambda_{i-right})$  are the population or number of 
 Now, there are five scenarios to determine non-sybil nodes: first if the max plane makes up over $20\%$ of the distribution and either biases are less than $90\%$ of the distribution, return the biases as non-sybil nodes. Second, if either the absolute value of the ratio of mean to population variance is less than $1x10^{-17}$ or the difference between the absolute value of the first principal component and the  absolute value of the second principal component is greater than the population standard deviation by $30\%$, return the entire set of $P_i$. Third, if the difference between the principal and second principal eigenvector is greater than the population standard deviation by $20\%$ or the minimum population diff (of all 3) is the population diff of the maximum principal component, then if the difference between the absolute values of the population biases of the principal eigenvalue $|\lambda_{left}| - |\lambda_{right}|$ is greater than the population standard deviation, return the right bias of the max principal component; if only the first condition is true, return the left bias of the max principal component. Next he same logic is then applied for the second and third principal components. 
 
 Finally, if the total non-sybil nodes to be returned are less than $10\%$ of the population ($90\%$ identified as sybil), return the entire set of nodes.
+
+\section{Tokenomics}
+The poincare complex is a manifold that carries functions of consensus algorithms, but it also carries more fundamental functions such as those from statistical physics. Specifically, if we consider every simplex as a molecule in a fluid, we can use the laws of generative economics (which apply to all flows, including fluid dynamics not just circuits) to engineer an economic system, generated from a Cell, that exhibits structural resilience preventing crashes and volatility
+
+\subsection{Ideal Gas Fees}
+Consider protocol complex where each simplex is a pressure P, the direct sum of which forms a scalar field of pressures, the enclosed integral of which forms a total pressure for the complex. We can define an isentropic process that implements generative economics. Pressure distribution in a fluid is a scalar field; while typically given by the molecule's mass times its density times gravity, we can define it in terms of backpressure in an API. Consider also the volume of the container for the fluid as the enclosure of a surface area of all simpexes in a flat grid. If we consider the velocity of transactions between addresses in a ledger as heat, we can define efficiency in terms of uniform heat distribution (like minimum arbitrage in generative economics), value in terms of internal energy (transaction processing rate) and stability in terms of syntropy ('negentropy' or ability to re-cohere in the presence of entropy, maintaining isentropy up to a certain cliff).
+
+In each case, the solutions to the corresponding differential equations have fractional order, as does the consensus mechanism 2meme which the protocol complex was designed for. 2meme reduces entropy within the poincare complex, giving the free enthalpy potential keeping the system coherent.
+
+How does this all fit in? Well ConTop is an isentropic system, meaning that from the perspective of a Carnot Cycle (as used in the definition of Generative Economics) it's state transition formula for temperature and pressure is 
+
+\begin{equation}
+\frac{P_1}{P_2} = \frac{T_1}{T_2}^{\frac{\frac{C_P}{C_V}}{\frac{C_P}{C_V}-1}}
+\end{equation}
+In an ideal gas, the specific heat is a function of dimensionality, 'degrees of freedom'. But for a purely informational case, we can look at dimensionality from the perspective of an abelian functor calculus and thermodynamic laws should still hold, given the proof above that the Poincare complex is isomorphic to the de Rahm complex which carries the differential forms describing ordinary physics.
+
+Specific heat comes from a stochastic process known as brownian motion\footnote{equipartition thm} applied to the geometry of an idea' gas's atom/molecule. 2meme operates on a data structure with the same geometric realization as physical molecules (described using de Rahm cohomology). The dimensionality of stochastic movement through this space generates an equivalent thermal capacity in an informational space\footnote{https://sites.math.northwestern.edu/~auffing/XiaoL2.pdf}, propotional ot Hausdorff dimension; the higher the hausdorff dimension the greater the capacity to handle kinetic energy (heat) or transaction rate.
+
+Consider 2meme's L1, which is isomorphic to the Sierpinski tetrahedron\footnote{2meme}, which has a Hausdorff dimensionality of 2 and corresponding to thermal capacity at constant pressure\footnote{2meme}. Consider also 2meme's L0 which which is given by a self avoiding random walk which has Hausdorff dimension $\frac{4}{3}$ corresponding to thermal capacity at constant volume. The specific heat $\frac{C_P}{C_V}$ is thus $\frac{2}{\frac{4}{3}} = \frac{3}{2}$ the same fractal dimensionality as brownian motion for a monatomic ideal gas.
+
+
+Thus, if we liken ambient heat loss to heat distribution in a media (and the velocity of an address i.e. number of transactions sent within a time period ala thermal energy) 
+we rearrange to find a set of acceptible fees at time step 2 from the value of the matrix $T_2$, let $ \gamma = \frac{C_P}{C_V}$ namely\footnote{https://math.stackexchange.com/questions/615614/non-integral-powers-of-a-matrix}
+
+\begin{equation}
+(P_1 *P_2)^\frac{1- \gamma }{-\gamma} * T_1 = T_2
+\end{equation}
 
 \section{Experimental results}
 The following results were generated from a simulation involving 100 node instances. Several simulations were run for various types of attacks, which will be outlined below, and with varying percentages of sybil nodes all acting in unison from $0\%$ to $100\%$ in 20 percent intervals. Each type of attack can be reduced down to sybil nodes reporting scores of themselves or non-sybil nodes according to a distribution i,e low scores for non-sybil or high scores for sybil nodes. In the following visualizations, each attack type occurs on the y axis, the sybil percentage is given by the x axis and the z axis is the performance, either F-score of the classifier or a gain in selection rate.
@@ -426,25 +453,25 @@ Here we have a plot of false positives / true positives. As mentioned above, F-s
 
 Here we have a plot of the difference between nodes cheating and not cheating. The vertical axis is the percent increase in sybil nodes (forging scores) that are selected for the next round of consensus vs if they actually just submitted scores based upon their true entropy rate (not cheating). The ledge on the top left represents the perfect non-sybil case ($0\%$) and the top right shows the $100\%$ sybil case; both of these shows $100\%$ of nodes selected for next round (as expected). Most importantly, the flat plane shows that the only sybil nodes selected would have been selected anyway, based upon their immutable entropy rate; this means that the classifier removes gains from cheating.
 
-\section{Sybil resistance}
+\subsection{Sybil resistance}
 Open networks pose inherent security risks deriving from Sybil attacks; where a group of individuals attempt to forge network or ledger state. The attack surface grows as the cost for participation, either through hash power or stake, is reduced; essentially reducing the cost of a sybil attack by minimizing the cost to run sybil nodes. This has the transitive effect of also reducing the efficacy of horizontal scaling techniques, which increase speed as a function of the number of nodes. 2MEME mitigates these attacks in such a way that promotes participation (low fees and high transactions per second), both as a miner and a user. 
 
-\subsection{Sybil attack}
+\subsubsection{Sybil attack}
 As shown in the false positive vs true positive plot, the classifier is able to remove the vast majority of sybil nodes (at most a $3.5\%$ sybil rate) and only fails with close to $100\%$ sybil rate. That being said, given that the size of the active peers is much less than the passive, it would be feasible, albeit of a low probability, that entire committees of active nodes could be sybil. However, our approach is still able to increase the cost required for a $100\%$ successful sybil attack beyond the typical $51\%$. 
 
 Active L0 nodes are chosen from two buckets: the smallest set of nodes who's stake adds up to a minimum of $50\%$ and the rest of the nodes. Because of this, the cost to achieve a sybil attack with $100\%$ guarantee (i.e. all active nodes are sybil) would require over $50\%$ of the total stake in the network and over $50\%$ of the total hash power (number of nodes); most permissionless networks require only one of these to be over $50\%$ to fail whereas this system requires both.
 
 Consider the case where $10\%$ of all L0 nodes contain over $50\%$ of staked tokens and the other $90\%$ makes up less than $50\%$, that would mean a guaranteed attack requires over $50\%$ of staked tokens and up to $100\%$ of the hash power. This is considerably more costly than pure POW or POS which fail above $50\%$ controlling hash power or stake, respectively.
 
-\subsection{Lie and wait attack}
+\subsubsection{Lie and wait attack}
 In a reputation system, a lie in wait attack occurs when nodes increase their reputation so that it can then use the high score later for abuse. In 2MEME, reputation is calculated based on an immutable log of information gain for each system, however the specific reputation score only has relevance within the context of the information gain of all other nodes and is ephemeral. Thus due to the nature of the model, which doesn't carry over reputation values between the active/passive cycle, it's not possible to 'save up reputation points' and spend them on an attack.
 
 The closest one could come to this attack is performing well by producing minimal entropy in every snapshot throughout the entire consensus round, and then forging their score proposals, however this is the focus of the various attacks in the experimental analysis section and the model has shown to be successful at identifying sybil nodes regardless of their scores, or the distribution of scores across all sybil nodes.
 
-\subsection{Eclipse attack}
+\subsubsection{Eclipse attack}
 As shown in the $L\Omega$ definition, the result of a $51\%$ attack is a network partition where the offending nodes would only have an invalid chain state. This is essentially how one would perform an Eclipse attack, where offending nodes send incorrect peer data or chain data to a newly joining node. In this case, honest nodes would not be able to join the invalid partition (validation of the download step from a sybil node would not pass) and honest subscribers such as client utilities or L2 applications would be able to identify a sybil partition via invalid published snapshots. The end result of a wider $51\%$ attack would be an increase in latency (as for an ordinary network partition) as opposed to an invalid chain state.
 
-\subsection{Ghost Chain Attack}
+\subsubsection{Ghost Chain Attack}
 As in most Proof of Work protocols, like Bitcoin, the probability of an attacker generating an alternative chain which is longer than the accurate chain in an attempt to change one of its own transactions to take back money spent is isomorphic to the Gambler's Ruin problem\footnote{Sec 11, https://bitcoin.org/bitcoin.pdf}. For a probability of attack success less that 0.1\% with sybil attack probability ($1-$ percentage of sybil nodes needed to perform a sybil attack), number of parent blocks that need to be accepted is given by the poisson distribution\footnote{pg 7, https://bitcoin.org/bitcoin.pdf}. Given our sybil threshold caps neatly at 80 (2MEME can handle 80\% sybil nodes) we can achieve 99.9\% probability of thwarting this attack with $z=11$ or rather only selecting a snapshot in finality which has 11 accepted parents.
 
 \section{Further investigation}
